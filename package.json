@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nf run -- index.js pizza",
-    "mariner-init": "nf run -- mariner init"
+    "migrate": "nf run -- mariner migrate up",
+    "rollback": "nf run -- mariner migrate down"
   },
   "repository": {
     "type": "git",
