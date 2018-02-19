@@ -1,3 +1,7 @@
+# LearningPlayground
+This is my playground to learn different things.
+
+=======
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/michaelkramer/LearningPlayground/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
