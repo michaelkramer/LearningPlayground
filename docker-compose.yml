@@ -18,7 +18,7 @@ pgweb-learning-playground:
   image: sosedoff/pgweb
   container_name: pgweb-learning-playground
   ports:
-    - "8071:8081"
+    - "8002:8081"
   links:
     - postgres-learning-playground:postgres-learning-playground
   environment:

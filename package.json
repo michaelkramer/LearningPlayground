@@ -1,0 +1,29 @@
+{
+  "name": "learningplayground",
+  "version": "1.0.0",
+  "description": "This is my playground to learn different things.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nf run -- index.js pizza",
+    "migrate": "nf run -- mariner migrate up",
+    "rollback": "nf run -- mariner migrate down"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelkramer/LearningPlayground.git"
+  },
+  "author": "Michael Kramer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelkramer/LearningPlayground/issues"
+  },
+  "homepage": "https://github.com/michaelkramer/LearningPlayground#readme",
+  "dependencies": {
+    "commander": "^2.14.1",
+    "mariner": "^1.0.2"
+  },
+  "devDependencies": {
+    "foreman": "^2.0.0"
+  }
+}
