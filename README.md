@@ -1,6 +1,10 @@
 # LearningPlayground
 This is my playground to learn different things.
 
+
+## I made a wiki!
+https://github.com/michaelkramer/LearningPlayground/wiki
+
 =======
 ## Welcome to GitHub Pages
 
