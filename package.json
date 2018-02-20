@@ -6,8 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nf run -- index.js pizza",
+    "web": "nf run -- index.js web",
     "migrate": "nf run -- mariner migrate up",
-    "rollback": "nf run -- mariner migrate down"
+    "rollback": "nf run -- mariner migrate down",
+
+    "build-dev-structure": "mkdir server && cd server && mkdir web && cd web && mkdir controllers && mkdir public && mkdir views && mkdir middlewares && cd public && mkdir css && mkdir js && mkdir images"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,7 @@
   "homepage": "https://github.com/michaelkramer/LearningPlayground#readme",
   "dependencies": {
     "commander": "^2.14.1",
+    "distraught": "^1.12.0",
     "mariner": "^1.0.2"
   },
   "devDependencies": {
