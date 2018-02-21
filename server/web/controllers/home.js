@@ -1,4 +1,4 @@
 
-async function get(req: Req, res: Res) {
+export function homeController(req, res) {
   return res.send('something good');
-};
+}
