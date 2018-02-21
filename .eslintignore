@@ -1,0 +1,6 @@
+node_modules/**
+dist/**
+flow/declarations/**
+flow-typed/**
+.eslintrc
+**/*.pug
