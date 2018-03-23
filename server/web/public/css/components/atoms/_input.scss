@@ -1,0 +1,116 @@
+// *******************************************
+// *******************************************
+
+    // Input component
+    // Container, Validation and Scaffolding
+
+// *******************************************
+// *******************************************
+
+// @vars
+
+// settings/layout-units
+$unit-default-spacing           : $unit-default-spacing;
+$unit-touch                     : $unit-touch;
+$input-default-bottom-margin    : $unit-default-spacing * 2;
+$input-sizes                    : $input-sizes;
+$input-default-size             : map-get(map-get($input-sizes, 'md'), 'size');
+
+// settings/stylistic
+$shadow-light : $shadow-light;
+
+
+
+@function get-input-size-keys($size, $unit) {
+    // scss-lint:disable NameFormat
+    @return map_get( // get value in size key
+        map_get( // get size key
+            $input-sizes,
+            $size
+        ),
+        $unit
+    );
+    // scss-lint:enable NameFormat
+}
+
+// container element
+.input {
+    position        : relative;
+    width           : 100%;
+    height          : rem-calc($input-default-size);
+    margin-bottom   : rem-calc($input-default-bottom-margin);
+    padding         : rem-calc(0 ($unit-default-spacing * 2));
+    border          : 0 !important;
+    outline         : 1px solid $gray-300;
+    outline-offset  : -1px;
+    background      : $white;
+    font-size       : 16px;
+    line-height     : rem-calc($unit-touch);
+    box-shadow      : 0 2px 4px 0 rgba(18,24,29,.10);
+
+    &:focus {
+        box-shadow      : 0 2px 4px 0 rgba(18,24,29,.20);
+        outline         : 1px solid $gray-300;
+        outline-offset  : -1px;
+        border-color    : $gray-400;
+    }
+
+}
+
+// input validation message
+.input__validation__validation__message {
+    position   : absolute;
+    top        : 100%;
+    right      : 0;
+    display    : block;
+    text-align : right;
+}
+
+.input--select {
+    text-indent : .5rem;
+}
+
+.input--select--multiple {
+    height     : auto;
+    min-height : rem-calc(110);
+    padding    : rem-calc($unit-default-spacing);
+
+    .option {
+        background-color  : $white;
+
+        &:hover {
+            color               : $secondary-1-dark;
+            font-weight         : 600;
+            background-color    : $gray-050;
+        }
+    }
+}
+
+// input size modifiers sm & md
+@each $input-size-key, $input-size in $input-sizes {
+
+    .input--#{$input-size-key} {
+        height          : rem-calc(get-input-size-keys($input-size-key, 'size'));
+        font-size       : rem-calc(get-input-size-keys($input-size-key, 'font-size'));
+        line-height     : rem-calc(get-input-size-keys($input-size-key, 'font-size'));
+    }
+
+}
+
+.input--error {
+  outline   : 1px solid $symbolic-error;
+
+    &:focus {
+        outline  : 1px solid $symbolic-error;
+    }
+}
+
+// there was a UI bug where our
+// .input mb was creating space between the select itself and its options
+.select2-container--default {
+    .selection {
+        .select2-selection {
+            margin-bottom: 0;
+        }
+    }
+}

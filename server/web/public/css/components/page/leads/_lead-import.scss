@@ -1,0 +1,13 @@
+#cloudsponge-root-holder {
+    #cloudsponge-address-book {
+        .cloudsponge-topbar, .cloudsponge-header {
+            background-color: $elevate-red;
+        }
+
+        #cloudsponge-export-button {
+            @extend .button;
+            padding-top: 0.5rem;
+            position: absolute;
+        }
+    }
+}

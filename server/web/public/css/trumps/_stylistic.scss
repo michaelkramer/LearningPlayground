@@ -1,0 +1,23 @@
+// *******************************************
+// *******************************************
+
+    // Stylistic utilites
+
+// *******************************************
+// *******************************************
+
+// @vars
+// settings/stylistic
+$shadows : $shadows;
+
+@each $shadow-key, $shadow-value in $shadows {
+
+    .u-#{$shadow-key} {
+        box-shadow : $shadow-value !important;
+    }
+
+}
+
+.u-blur4 {
+    filter : blur(4px);
+}

@@ -1,0 +1,78 @@
+// *******************************************
+// *******************************************
+
+    // Multi-Select Components
+
+// *******************************************
+// *******************************************
+
+// @vars
+$multi-select-height      : rem-calc(24);
+$multi-select-width       : rem-calc(340);
+$multi-select-radius      : 3px;
+
+$multi-select-color-map : map-merge(
+    $utility-colors,
+    $gray-colors
+);
+
+$multi-select-box-shadow  : $shadow-light;
+
+.multi-select {
+    height                : $multi-select-height;
+    width                 : $multi-select-width;
+
+}
+
+.multi-select--shadow {
+    box-shadow            : $multi-select-box-shadow;
+
+}
+
+.multi-select__checked {
+    display               : flex;
+    justify-content       : space-between;
+    padding-left          : rem-calc(4);
+    font-size             : rem-calc(12);
+    font-family           : $sans;
+    font-weight           : lighter;
+}
+
+@each $multi-select-color-map-key, $multi-select-color-map-color in $multi-select-color-map {
+    .multi-select--#{$multi-select-color-map-key} {
+        background        : $multi-select-color-map-color;
+        color             : $white;
+
+    }
+
+}
+
+.multi-select__unchecked {
+    display               : flex;
+    justify-content       : space-between;
+    padding-left          : rem-calc(4);
+    font-size             : rem-calc(12);
+    font-family           : $sans;
+    font-weight           : lighter;
+    border                : 2px solid $gray-400;
+    color                 : $gray-500;
+
+}
+
+.multi-select--padding {
+    padding               : rem-calc(1);
+}
+
+.multi-select-icon {
+    padding-top           :  rem-calc(3);
+    padding-right         : rem-calc(2);
+
+}
+
+// border-radius modifier
+.multi-select--radius {
+    border-radius         : $multi-select-radius;
+}
+
+
+

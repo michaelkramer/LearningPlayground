@@ -1,0 +1,271 @@
+// *******************************************
+// *******************************************
+
+    // Results Page layout component
+    // Ex: MLS search page
+
+// *******************************************
+// *******************************************
+
+// @vars
+$unit-default-content-width           : $unit-default-content-width; // settings/layout-units
+$unit-default-spacing                 : $unit-default-spacing; // settings/layout-units
+$results-page-filters-width           : 360;
+$results-page-filters-controls-height : ($unit-touch + 12); // settings/layout-units
+$results-page-bulkbar-height          : ($unit-touch + 32); // settings/layout-units
+$unit-header-height                   : $unit-header-height; // settings/layout-units
+$results-page-filter-drawer-width     : 24;
+$results-page-toolbar-height          : 40;
+$white                                : $white; // settings/colors
+$gray-050                             : $gray-050; // settings/colors
+$gray-200                             : $gray-200; // settings/colors
+$ease-in-out-quad                     : $ease-in-out-quad; // tools/timing-fucntions
+$stack-top                            : $stack-top; // settings/z-indexes
+
+// page container
+// 1. Hack for hiding the border-bottom from the main header-
+//    it will be included in the .results-page__toolbar instead.
+.results-page {
+    position    : relative;
+    height      : 100%;
+    overflow    : hidden;
+    margin-top  : -1px; // 1.
+    border-top  : 1px solid #fff; // 1.
+}
+
+////////////////////////////////////////
+// Base layout
+////////////////////////////////////////
+// contains results list and filters sections
+.results-page__main {
+    position : relative;
+    height   : 100%;
+}
+
+// filters section
+.results-page__main__filters {
+    position      : absolute;
+    top           : 0;
+    left          : 0;
+    width         : rem-calc($results-page-filters-width);
+    height        : 100%;
+    border-right  : 1px solid $gray-200;
+    background    : $gray-050;
+    transition    : transform 250ms $ease-in-out-quad;
+}
+
+// contains filter viewport and controls
+.results-page__main__filters__viewport-container {
+    position       : relative;
+    height         : 100%;
+    padding-bottom : rem-calc($results-page-filters-controls-height);
+}
+
+// filters viewport
+.results-page__main__filters__viewport {
+    height     : 100%;
+    padding    : rem-calc($unit-default-spacing * 2);
+    overflow   : hidden;
+    overflow-y : auto;
+}
+
+.results-page__main__filters__viewport__list-item {
+    color           : $gray-500;
+    font-weight     : 500;
+    text-transform  : uppercase;
+    display         : flex;
+    justify-content : space-between;
+    font-size       : rem-calc(14);
+    align-items     : center;
+    padding         : rem-calc(10 0 10 1);
+    border-bottom   : 1px solid $gray-200;
+}
+
+// filter controls fixed to bottom
+.results-page__main__filters__controls {
+    position        : absolute;
+    right           : 0;
+    bottom          : 0;
+    left            : 0;
+    z-index         : $stack-top;
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    height          : rem-calc($results-page-filters-controls-height);
+    border-top      : 1px solid $gray-200;
+    background      : $gray-050;
+    padding: 10px;
+}
+
+// filters drawer handle
+.results-page__main__filters__drawer-handle {
+    position        : absolute;
+    top             : 0;
+    right           : 0;
+    bottom          : 0;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    width           : rem-calc($results-page-filter-drawer-width);
+    border-left     : 1px solid $gray-300;
+    border-right    : 1px solid $gray-300;
+    background      : $gray-200;
+
+    &:hover {
+        background : rgba($white, .25);
+
+        .results-page__main__filters__drawer-handle__icon {
+            fill : $gray-800;
+        }
+
+    }
+
+    &:focus {
+        outline : none;
+    }
+
+}
+
+// drawer icon
+.results-page__main__filters__drawer-handle__icon {
+    width  : rem-calc($results-page-filter-drawer-width);
+    height : rem-calc($results-page-filter-drawer-width);
+    fill   : $gray-800;
+}
+
+// results section
+.results-page__main__results {
+    box-sizing  : content-box;
+    width       : calc(100% - #{rem-calc($results-page-filters-width)});
+    height      : 100%;
+    border-left : rem-calc($results-page-filters-width) solid transparent;
+    transition  : width 250ms $ease-in-out-quad,
+                  border 250ms $ease-in-out-quad;
+}
+
+// full width (no filter sidebar) modifier
+.results-page__main__results--full-width {
+    width       : 100%;
+    border-left : 0;
+}
+
+.results--no-listings {
+    background      : $white;
+    padding-top     : 10%;
+    padding-left    : rem-calc(5);
+    font-size       : rem-calc(20);
+}
+
+// results list viewport section
+// scroll area
+.results-page__main__results__list-viewport {
+    height     : calc(100vh - #{rem-calc($results-page-toolbar-height + $unit-header-height)});
+    overflow   : auto;
+    background : $gray-050;
+}
+
+.results-page__main__results__list-viewport__list {
+    min-width     : rem-calc($unit-default-content-width);
+    margin-bottom : rem-calc($results-page-bulkbar-height);
+
+    // no bulk-bar parent modifier
+    .results-page--no-bulk-bar & {
+        margin-bottom : 0;
+    }
+
+}
+
+// collapsed filters modifier
+.results-page--filters-collapsed {
+
+    .results-page__main__filters {
+        transform : translateX(- rem-calc($results-page-filters-width));
+        overflow  : hidden;
+    }
+
+    .results-page__main__results {
+        width             : 100%;
+        border-left-width : 0;
+    }
+
+}
+
+// results toolbar section
+.results-page__main__results__toolbar {
+    height : rem-calc($results-page-toolbar-height);
+}
+
+// results top toolbar
+.results-page__toolbar {
+    display         : flex;
+    align-items     : center;
+    justify-content : space-between;
+    border-bottom   : 1px solid $gray-200;
+    background      : $white;
+    color           : $gray-800;
+    position        : relative;
+    z-index         : $stack-bot;
+}
+
+.results-page__toolbar__tool {
+    display         : flex;
+    align-items     : center;
+    justify-content : space-between;
+    width           : 100%;
+
+}
+
+// pagination component
+.results-page__toolbar__pagination {
+    position : relative;
+    z-index  : $stack-top;
+
+    .pagination__control {
+        border-top    : 0;
+        border-bottom : 0;
+    }
+
+}
+
+.results-page__toolbar__select-limit {
+    position : relative;
+    z-index  : $stack-bot;
+}
+
+// view toggle component
+.results-page__toolbar__view-toggle {
+
+    .view-toggle__action {
+        border-top    : 0;
+        border-bottom : 0;
+    }
+
+}
+
+// bulk bar multi edit
+.jq__results-page__bulk-bar {
+    position   : fixed;
+    right      : 0;
+    bottom     : 0;
+    left       : rem-calc($results-page-filters-width + $unit-navbar-width);
+    z-index    : $stack-top;
+
+    .results-page--filters-collapsed & {
+        left : rem-calc($unit-navbar-width);
+    }
+}
+
+.results-page__search-action-bar {
+    display         : flex;
+    align-items     : center;
+    justify-content : flex-start;
+}
+
+.results-page__search-action-bar__toggle {
+    cursor      : pointer;
+    margin      : rem-calc(0 8 0 13);
+    align-items : center;
+    font-size   : rem-calc(14);
+    line-height : rem-calc(14);
+    display     : flex;
+}

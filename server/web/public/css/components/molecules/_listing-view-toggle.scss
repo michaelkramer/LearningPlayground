@@ -1,0 +1,51 @@
+// *******************************************
+// *******************************************
+
+    // View toggle  component
+
+// *******************************************
+// *******************************************
+
+$view-toggle-action-dimension : 30;
+$gray-200                     : $gray-200; // settings/colors
+$gray-500                     : $gray-500; // settings/colors
+$gray-700                     : $gray-700; // settings/colors
+$secondary-2                  : $secondary-2; // settings/colors
+
+// container element
+.view-toggle {
+    display     : flex;
+    align-items : stretch;
+}
+
+// individual action
+.view-toggle__action {
+    border-right : 0;
+}
+
+// active modifier
+.view-toggle__action--active {
+    background : mix($black, $secondary-2, 15%);
+
+    .view-toggle__action__icon {
+        fill : $gray-100;
+    }
+}
+
+// defines action layout
+// in case <button> is used
+.view-toggle__action__layout {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    width           : rem-calc($view-toggle-action-dimension);
+    height          : rem-calc($view-toggle-action-dimension);
+}
+
+// action icon
+.view-toggle__action__icon {
+    width  : rem-calc($view-toggle-action-dimension * .6);
+    height : rem-calc($view-toggle-action-dimension * .6);
+    margin : 0;
+    fill   : $gray-400;
+}

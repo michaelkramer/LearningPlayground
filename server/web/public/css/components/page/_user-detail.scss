@@ -1,0 +1,29 @@
+// *******************************************
+// *******************************************
+
+    // User Detail page component styles
+    // /users/:userId
+
+// *******************************************
+// *******************************************
+
+.modal .modal__panel.panel .modal__content .modal__padBottom {
+    padding-bottom: 4.3rem!important;
+}
+
+.user-detail__panel__container {
+    position        : relative;
+    padding-bottom  : rem-calc(120);
+    &:after {
+        content        : '';
+        display        : block;
+        width          : 100%;
+        border-top     : rem-calc(1) solid $gray-100;
+        text-align     : center;
+        bottom         : rem-calc(0);
+        position       : absolute;
+        margin-top     : rem-calc(20);
+        margin-bottom  : rem-calc(40);
+    }
+}
+

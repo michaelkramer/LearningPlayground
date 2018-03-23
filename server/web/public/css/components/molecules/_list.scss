@@ -1,0 +1,44 @@
+// *******************************************
+// *******************************************
+
+    // List component
+
+// *******************************************
+// *******************************************
+
+.list {
+    margin          : 0;
+    padding         : 0;
+    list-style-type : none;
+}
+
+.list__button {
+    width : 100%;
+}
+
+.list__item {
+    border-bottom : 1px solid $gray-200;
+
+    &:last-child {
+        border-bottom : 0;
+    }
+}
+
+.list__item__layout {
+    display : flex;
+    padding : rem-calc(6 10);
+}
+
+.list__item__notification__layout {
+    display : flex;
+    height: 20px;
+    padding : 5px;
+}
+
+.list--stripe {
+
+    .list__item:nth-child(even) {
+        background : $gray-050;
+    }
+
+}

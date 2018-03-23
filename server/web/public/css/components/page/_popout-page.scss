@@ -1,0 +1,44 @@
+// *******************************************
+// *******************************************
+
+    // Popout page component styles
+    // (new tab popout page)
+    // Ex: Lead Call Page
+    // /leads/:id/calls/new
+
+// *******************************************
+// *******************************************
+
+// @vars
+// settings/layout-vars
+$unit-default-spacing : $unit-default-spacing;
+$unit-grid-4of12      : $unit-grid-4of12;
+$unit-grid-8of12      : $unit-grid-8of12;
+
+.popout-page {
+    min-height : 100%;
+}
+
+.popout-page__content {
+    display   : flex;
+    flex-flow : column;
+    margin    : 0 auto;
+}
+
+.popout-page__content-container {
+    display     : flex;
+    align-items : stretch;
+    flex        : 1 0 auto;
+}
+
+.popout-page__aside {
+    flex         : 1 0 $unit-grid-4of12;
+    padding      : rem-calc($unit-default-spacing * 3);
+    border-right : 1px solid $gray-200;
+    background   : $gray-050;
+}
+
+.popout-page__main {
+    flex    : 1 0 $unit-grid-8of12;
+    padding : rem-calc($unit-default-spacing * 3);
+}

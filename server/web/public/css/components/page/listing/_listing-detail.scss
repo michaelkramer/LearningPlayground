@@ -1,0 +1,159 @@
+// *******************************************
+// *******************************************
+    // Listing Detail page compoent styles
+    // /listings/:listingId
+// *******************************************
+// *******************************************
+// @vars
+$unit-header-height                          : $unit-header-height; // settings/layout-units
+$listing-detail-max-width                    : $unit-grid-constraint; // settings/layout-units
+$unit-grid-5of12                             : $unit-grid-5of12; // settings/layout-units
+$unit-grid-7of12                             : $unit-grid-7of12; // settings/layout-units
+$unit-grid-gutter                            : $unit-grid-gutter; // settings/layout-units
+$panel-header-height                         : $panel-header-height; // components/panels
+$listing-detail-top-offset                   : 30;
+$listing-detail-content-details-nav          : 54;
+$listing-detail-content-vertical-offest-unit : ($unit-modal-content-height + $listing-detail-top-offset + $modal-footer-height);
+$modal-footer-height                         : 20 - 1; // height minus border
+
+// component vars
+$entry-page-padding            : $unit-default-spacing * 3;
+$entry-page-content-720-width  : 720;
+$entry-page-content-960-width  : 960;
+$entry-page-content-1140-width : 1140;
+
+// settings/layout-vars
+$unit-default-spacing : $unit-default-spacing;
+$unit-header-height   : $unit-header-height;
+$unit-grid-4of12      : $unit-grid-4of12;
+$unit-grid-8of12      : $unit-grid-8of12;
+
+.listing-detail {
+    display         : flex;
+    flex-wrap       : wrap;
+    justify-content : flex-start;
+    align-items     : stretch;
+    min-height      : calc(100vh - #{rem-calc($unit-header-height)});
+
+    .property-meta {
+        width: 100%;
+
+        @media (min-width: $viewport-md) {
+            flex-direction: column;
+        }
+
+        .property-meta__item {
+            border-bottom: 1px solid $gray-200;
+            padding-top: 11px;
+            padding-bottom: 11px;
+        }
+    }
+}
+
+.listing-detail__article {
+    flex-direction  : row-reverse;
+    flex-grow       : 2;
+    width           : $unit-grid-9of12;
+    border-bottom   : 1px solid $gray-200;
+}
+
+.listing-detail__article__overview {
+    border-top      : 0;
+    border-bottom   : 0;
+
+    @media (min-width: $viewport-md) {
+        width   : 100px;
+        height  : 100%;
+    }
+
+    li:last-child {
+        border-bottom: 0;
+    }
+}
+
+.listing-detail__sidebar {
+    flex-grow       : 1;
+    width           : $unit-grid-3of12;
+    min-width       : 200px;
+    padding         : rem-calc($unit-default-spacing * 2);
+    border-right    : 1px solid $gray-200;
+    border-bottom   : 1px solid $gray-200;
+    border-left     : 1px solid $gray-200;
+    background      : $gray-050;
+}
+
+.listing-detail__sections {
+  width: $unit-grid-12of12;
+
+    .accordion__section {
+        @media (min-width: $viewport-md) {
+            padding-right: 40px;
+        }
+    }
+}
+
+.listing-detail__section__button--expand {
+    margin-top: 10px;
+}
+
+.listing-detail__section__button--expand-map {
+    margin-top: 16px;
+}
+
+.listing-detail__sections__features {
+    flex-direction: column;
+
+    .column-group-container {
+        @media (min-width: $viewport-md) {
+            flex-direction  : column;
+            height          : 1400px;
+        }
+    }
+}
+
+.accordion__section--collapse {
+    .listing-detail__accordion__section__description {
+        height      : 70px;
+        overflow    : hidden;
+    }
+
+    .listing-detail__accordion__section__features {
+        flex-direction  : column;
+        height          : 130px;
+        overflow        : hidden;
+
+        @media (min-width: $viewport-sm) {
+            flex-direction: row;
+        }
+    }
+
+    .listing-detail__accordion__section__neighborhood {
+        height      : 430px;
+        overflow    : hidden;
+    }
+
+    .listing-detail__accordion__section__map {
+        width       : 100%;
+        height      : 400px;
+        overflow    : hidden;
+    }
+
+    .listing-detail__accordion__section__history {
+        min-height  : 140px;
+        overflow    : hidden;
+    }
+
+    .listing-detail__accordion__section__schools {
+        overflow: hidden;
+    }
+
+    .listing-detail__accordion__section__notes {
+        height      : 190px;
+        overflow    : hidden;
+    }
+}
+
+.galleria-theme-classic {
+    background: $white !important;
+}
+

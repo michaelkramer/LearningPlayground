@@ -1,0 +1,25 @@
+.branding {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    min-width       : rem-calc(240);
+    padding         : rem-calc(30 24 24);
+    line-height     : 0;
+}
+
+.branding__img {
+    height : rem-calc(28);
+}
+
+.org-branding {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    min-width       : rem-calc(240);
+    padding         : rem-calc(28 16 16);
+    line-height     : 0;
+}
+
+.org-branding__img {
+    height : rem-calc(60);
+}

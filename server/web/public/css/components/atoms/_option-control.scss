@@ -1,0 +1,124 @@
+// *******************************************
+// *******************************************
+
+    // Option control component styles
+    // Used for checkboxes, radios, etc.
+    // contains input + label
+
+// *******************************************
+// *******************************************
+
+// @vars
+$unit-default-spacing                 : $unit-default-spacing; // settings/layout-units
+$option-control-default-height        : 30;
+$option-control-sm-height             : 22;
+$option-control-default-bottom-margin : $unit-default-spacing; // settings/layout-units
+
+// container element
+.option-control {
+    margin-bottom : rem-calc($option-control-default-bottom-margin);
+}
+
+// label element
+// input + label children
+.option-control__label {
+    position    : relative;
+    z-index     : 1;
+    display     : flex;
+    align-items : center;
+    min-height  : rem-calc($option-control-default-height);
+    cursor      : pointer;
+
+    &:hover,
+    .option-control--focus & {
+
+        .option-control__box::after {
+            transform : translate(-50%, -50%) scale(1, 1);
+        }
+
+    }
+
+}
+
+// native input
+// hide from view but leave for screen readers
+.option-control__input {
+    position : relative;
+    clip     : rect(5px, 5px, 5px, 5px);
+    padding  : 1;
+    margin-right: 5px;
+    overflow : hidden;
+    border   : 0;
+}
+
+// faux radio/checkbox element
+.option-control__box {
+    position        : relative;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    width           : rem-calc($option-control-default-height);
+    height          : rem-calc($option-control-default-height);
+    border          : 3px solid $gray-400;
+    background      : $gray-050;
+    line-height     : 0;
+
+    &::after {
+        content       : '';
+        position      : absolute;
+        top           : 50%;
+        left          : 50%;
+        z-index       : -2;
+        width         : rem-calc($option-control-default-height * 2);
+        height        : rem-calc($option-control-default-height * 2);
+        transform     : translate(-50%, -50%)  scale(0, 0);
+        border-radius : 50%;
+        background    : rgba($primary, .1);
+        transition    : transform 350ms $ease-in-out-quad;
+    }
+
+    .option-control--checked & {
+        border-color : $primary;
+        background   : $white;
+    }
+
+    // size modifier
+    .option-control--sm & {
+        width  : rem-calc($option-control-sm-height);
+        height : rem-calc($option-control-sm-height);
+        border-width: 2px;
+    }
+
+}
+
+// box icon
+.options-control__box__icon {
+    width      : 75%;
+    height     : 75%;
+    margin     : 0;
+    transform  : scale(0, 0);
+    transition : scale 200ms ease,
+                 fill 200ms ease;
+
+    .option-control--checked & {
+        transform: scale(1, 1);
+    }
+
+}
+
+// label text
+.option-control__label-text {
+    @include sans-bold;
+    display   : inline-block;
+    font-size : rem-calc(12);
+}
+
+// scss-lint:disable MergeableSelector
+.option-control__box + .option-control__label-text {
+    margin-left : rem-calc($unit-default-spacing);
+}
+
+.option-control__label-text + .option-control__box {
+    margin-right : rem-calc($unit-default-spacing);
+}
+// scss-lint:enable MergeableSelector

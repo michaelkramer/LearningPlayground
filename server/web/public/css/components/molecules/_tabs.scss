@@ -1,0 +1,101 @@
+// *******************************************
+// *******************************************
+
+    // Tabs components
+
+// *******************************************
+// *******************************************
+
+// @vars
+$unit-touch : $unit-touch; // settings/layout-units
+
+// container element
+.tabs {
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+}
+
+// justify modifiers
+.tabs--center {
+    justify-content : center !important;
+}
+
+// tab
+.tabs__tab {
+    display     : flex;
+    align-items : center;
+    flex        : 1 1 auto;
+    height      : rem-calc($unit-touch);
+    border      : 1px solid $gray-200;
+    border-left : 0;
+    background  : $white;
+    text-align  : center;
+
+    &:first-child {
+        border-left : 1px solid $gray-200;
+    }
+
+}
+
+// current modifier
+.tabs__tab--current {
+    border-bottom : transparent;
+    background    : transparent;
+    color         : $primary;
+
+    .tabs__tab__button {
+        color : $primary;
+    }
+
+}
+
+// helper to fix button layout nonsense
+.tabs__tab__button {
+    display : block;
+    width   : 100%;
+    height  : 100%;
+    color   : $gray-600;
+
+    &:focus {
+        outline : 0;
+    }
+
+}
+
+// material design tabs modifier
+.tabs--material {
+    justify-content : flex-start;
+    border-bottom   : 1px solid $gray-200;
+    background-color: $white;
+
+    .tabs__tab {
+        position : relative;
+        flex     : 0 0 auto;
+        margin   : rem-calc(3 0);
+        padding  : rem-calc(0 10);
+        border   : 0;
+
+        &::before {
+            content    : '';
+            position   : absolute;
+            right      : 0;
+            bottom     : 0;
+            left       : 0;
+            display    : none;
+            height     : 3px;
+            background : $primary;
+        }
+
+    }
+
+    .tabs__tab--current {
+        color : $primary;
+
+        &::before {
+            display : block;
+        }
+
+    }
+
+}

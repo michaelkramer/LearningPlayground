@@ -1,0 +1,88 @@
+// *******************************************
+// *******************************************
+
+    // App layout component
+    // Dictates app-wide layout
+
+// *******************************************
+// *******************************************
+
+// @vars
+$app-navbar-width                   : $unit-navbar-width; // settings/layout-units
+$app-header-height                  : $unit-header-height; // settings/layout-units
+$stack-top                          : $stack-top; // settings/z-indexes
+$stack-mid                          : $stack-mid; // settings/z-indexes
+$stack-bot                          : $stack-bot; // settings/z-indexes
+$app-navbar-transition              : all 250ms $ease-in-out-quad;
+$app-layout-region-border-color     : $gray-200; // settings/colors
+$app-layout-region-background-color : $white; // settings/colors
+
+/////////////////////////////////////////////
+// layout regions
+/////////////////////////////////////////////
+
+// layout container element
+.app-layout {
+    position: relative;
+    height: 100vh;
+}
+
+
+// navbar region container
+.app-layout__navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    width: #{$app-navbar-width}px;
+    height: 100vh;
+    border-right: 1px solid $app-layout-region-border-color;
+    background: $white;
+    transition: $app-navbar-transition;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.navbar--hidden .app-layout__navbar {
+    transform: translateX(-#{$app-navbar-width}px);
+}
+
+// contains main content region of app
+.app-layout__main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    transition: $app-navbar-transition;
+
+    @media (min-width: $viewport-md) {
+        padding-left: rem-calc($app-navbar-width);
+
+        .navbar--hidden & {
+            padding-left: 0;
+        }
+    }
+}
+
+.app-layout__navbar-underlay {
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.625);
+    z-index: 98;
+    opacity: 1;
+    visibility: visible;
+    transition: $app-navbar-transition;
+
+    .navbar--hidden & {
+        opacity: 0; // for smooth transitions
+        visibility: hidden; // prevents blocking events when navbar is hidden
+    }
+
+    @media (min-width: $viewport-md) {
+        display: none; // desktop should never see the underlay
+    }
+}

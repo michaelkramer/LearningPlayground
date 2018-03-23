@@ -1,0 +1,18 @@
+// *******************************************
+// *******************************************
+
+    // Styles for root elements
+
+// *******************************************
+// *******************************************
+
+html,
+body {
+    background              : $gray-050;
+    font-family             : $sans;
+    font-size               : 1rem;
+    color                   : $gray-800;
+    line-height             : rem-calc(24);
+    -webkit-font-smoothing  : antialiased;
+    -moz-osx-font-smoothing : grayscale;
+}

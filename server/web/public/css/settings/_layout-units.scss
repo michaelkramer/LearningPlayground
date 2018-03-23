@@ -1,0 +1,90 @@
+// *******************************************
+// *******************************************
+
+    // Units, sizes and measurements
+
+// *******************************************
+// *******************************************
+
+// defaults
+$unit-base-font-size        : 16;
+$unit-touch                 : 48;
+$unit-default-font-spacing  : 4;
+$unit-default-spacing       : $unit-default-font-spacing * 2;
+$unit-default-content-width : 1140;
+
+// grid units
+$unit-baseline-grid        : 6;
+$unit-grid-col-count       : 12;
+$unit-grid-col-width-basis : 76;
+$unit-grid-gutter          : 21;
+$unit-grid-constraint      : $unit-default-content-width;
+
+// app region units
+$unit-logo-height           : 84;
+$unit-edge-space            : 16;
+$unit-header-height         : 48;
+$unit-navbar-width          : 240;
+$unit-navbar-footer-height  : 84;
+$unit-content-sidebar-width : 400;
+$unit-modal-content-height  : $unit-header-height + $unit-header-height + $unit-touch;
+
+// grid widths
+$unit-grid-1of12  : 8.333333333333%;
+$unit-grid-2of12  : 16.666666666667%;
+$unit-grid-3of12  : 25%;
+$unit-grid-4of12  : 33.333333333333%;
+$unit-grid-5of12  : 41.666666666667%;
+$unit-grid-6of12  : 50%;
+$unit-grid-7of12  : 58.333333333333%;
+$unit-grid-8of12  : 66.666666666667%;
+$unit-grid-9of12  : 75%;
+$unit-grid-10of12 : 83.333333333333%;
+$unit-grid-11of12 : 91.666666666667%;
+$unit-grid-12of12 : 100%;
+$unit-grid-sizes  : (
+    '1of12'  : $unit-grid-1of12,
+    '2of12'  : $unit-grid-2of12,
+    '3of12'  : $unit-grid-3of12,
+    '4of12'  : $unit-grid-4of12,
+    '5of12'  : $unit-grid-5of12,
+    '6of12'  : $unit-grid-6of12,
+    '7of12'  : $unit-grid-7of12,
+    '8of12'  : $unit-grid-8of12,
+    '9of12'  : $unit-grid-9of12,
+    '10of12' : $unit-grid-10of12,
+    '11of12' : $unit-grid-11of12,
+    '12of12' : $unit-grid-12of12
+);
+
+// content contraints
+$unit-max-line-length : 720;
+
+$icon-sizes : (
+    'xxxs' : ('size' : 10, 'font-size' : 6),
+    'xxs'  : ('size' : 21, 'font-size' : 10),
+    'xs'   : ('size' : 24, 'font-size' : 11),
+    'sm'   : ('size' : 30, 'font-size' : 12),
+    'md'   : ('size' : 40, 'font-size' : 14),
+    'lg'   : ('size' : 60, 'font-size' : 21),
+    'xl'   : ('size' : 72, 'font-size' : 24),
+    'xxl'  : ('size' : 81, 'font-size' : 27),
+);
+
+// component sizes
+// Ex: Button and Input sizes
+$button-sizes : (
+    'sm'  : ('size' : 30, 'font-size' : 12),
+    'md'  : ('size' : 40, 'font-size' : 14),
+);
+
+$input-sizes : (
+    'sm'  : ('size' : 32, 'font-size' : 13),
+    'md'  : ('size' : 40, 'font-size' : 16),
+);
+
+$label-sizes : (
+    'sm'  : ('size' : 16, 'font-size' : 12),
+    'md'  : ('size' : 24, 'font-size' : 13),
+);
+

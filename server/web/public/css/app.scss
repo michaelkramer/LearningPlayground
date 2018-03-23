@@ -1,0 +1,198 @@
+// *******************************************
+// *******************************************
+
+    // App styles
+
+// *******************************************
+// *******************************************
+
+// Inverted Triangle CSS Architecture
+// see: https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+
+// BEM Syntax
+// see: http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
+
+// Atomic Design
+// see: http://bradfrost.com/blog/post/atomic-web-design/
+
+/////////////////////////////////////////////
+// Settings
+// contain font, colors definitions, etc.
+// DON'T GENERATE ANY CSS !!!
+/////////////////////////////////////////////
+@import 'settings/global',
+        'settings/layout-units',
+        'settings/colors',
+        'settings/breakpoints',
+        'settings/fonts',
+        'settings/stylistic',
+        'settings/z-indexes';
+
+/////////////////////////////////////////////
+// Tools
+// globally used mixins and functions
+// DON'T GENERATE ANY CSS !!!
+/////////////////////////////////////////////
+@import 'tools/rem-calc',
+        'tools/tint-shade',
+        'tools/timing-functions',
+        'tools/placeholder',
+        'tools/css-filter',
+        'tools/absolute-center',
+        'tools/media-queries',
+        'tools/no-flicker',
+        'tools/clearfix',
+        'tools/overflow-ellipses',
+        'tools/grid-mixins';
+
+/////////////////////////////////////////////
+// Generic
+// reset and/or normalize styles, box-sizing definition, etc.
+// first layer of generated CSS
+/////////////////////////////////////////////
+@import 'generic/reset',
+        'generic/box-sizing',
+        'generic/interactive';
+
+/////////////////////////////////////////////
+// Elements
+// styling for bare HTML elements (like H1, A, etc.)
+// Note: use OOCSS and BEM for typography styles in component layer
+/////////////////////////////////////////////
+@import 'elements/root-elements',
+        'elements/buttons',
+        'elements/inline-elements';
+
+/////////////////////////////////////////////
+// Objects
+// class-based selectors which define undecorated design patterns
+/////////////////////////////////////////////
+@import 'objects/grid';
+
+/////////////////////////////////////////////
+// Components
+// UI components
+/////////////////////////////////////////////
+
+// Atoms components
+// http://bradfrost.com/blog/post/atomic-web-design/#atoms
+@import 'components/atoms/typography',
+        'components/atoms/icon',
+        'components/atoms/button',
+        'components/atoms/validation',
+        'components/atoms/option-control',
+        'components/atoms/avatar',
+        'components/atoms/label',
+        'components/atoms/alert',
+        'components/atoms/hollow-circle',
+        'components/atoms/map-pin',
+        'components/atoms/tool-tip',
+        'components/atoms/notification',
+        'components/atoms/actionbar',
+        'components/atoms/code-block',
+        // form and input components
+        'components/atoms/form-group',
+        'components/atoms/form-label',
+        'components/atoms/faux-input',
+        'components/atoms/input',
+        'components/atoms/checkbox',
+        'components/atoms/radio',
+        'components/atoms/select',
+        'components/atoms/multi-select',
+        'components/atoms/textarea';
+
+// Molecule components
+// http://bradfrost.com/blog/post/atomic-web-design/#molecules
+@import 'components/molecules/list',
+        'components/molecules/table',
+        'components/molecules/tabs',
+        'components/molecules/column-group',
+        'components/molecules/dropmenu',
+        'components/molecules/dropdown',
+        'components/molecules/accordion',
+        'components/molecules/branding',
+        'components/molecules/main-nav',
+        'components/molecules/panel',
+        'components/molecules/panel-header-actions',
+        'components/molecules/user-chip',
+        'components/molecules/image-slider',
+        'components/molecules/property-meta',
+        'components/molecules/timeline',
+        'components/molecules/pagination',
+        'components/molecules/select-limit',
+        'components/molecules/modal',
+        'components/molecules/listing-view-toggle',
+        'components/molecules/map-popout',
+        'components/molecules/geosuggest',
+        'components/molecules/gmap',
+        'components/molecules/card',
+        'components/molecules/select2',
+        'components/molecules/event-list',
+        'components/molecules/nav-cards';
+
+// Organism components
+// http://bradfrost.com/blog/post/atomic-web-design/#organisms
+@import 'components/organisms/bulk-bar',
+        'components/organisms/global-alert',
+        'components/organisms/concierge-dialpad',
+        'components/organisms/property-card';
+
+// Page components
+// http://bradfrost.com/blog/post/atomic-web-design/#pages
+// MLS Search Pages
+@import 'components/page/login-page',
+        'components/page/signup-page',
+        'components/page/forgot-page',
+        'components/page/reset-page',
+        'components/page/faq-page',
+        'components/page/results-page',
+        'components/page/entry-page',
+        'components/page/popout-page',
+        'components/page/listings/listing-search-sidebar',
+        'components/page/listings/listings-map',
+        'components/page/listing/listing-detail',
+        'components/page/listing/listing-detail-map',
+        'components/page/listing/listing-detail-history',
+        'components/page/leads/leads-list',
+        'components/page/leads/lead-import',
+        'components/page/leads/lead-search-sidebar',
+        'components/page/lead/lead-form',
+        'components/page/user-detail',
+        'components/page/concierge-call-log',
+        'components/page/home-dashboard',
+        'components/page/ui-kit/colors-page',
+        'components/page/ui-kit/buttons-page',
+        'components/page/ui-kit/icons-page',
+        'components/page/ui-kit/inputs-page',
+        'components/page/lead/lead-detail',
+        'components/page/organization/upload-assets',
+        'components/page/lead/lead-routing-form',
+        'components/page/calendar/calendar-list',
+        'components/page/dashboard/agent/agent-dashboard',
+        'components/page/dashboard/broker/broker-dashboard',
+        'components/page/dashboard/broker/broker-dashboard-listings',
+        'components/page/cmas';
+
+// Layout components (Templates)
+// http://bradfrost.com/blog/post/atomic-web-design/#templates
+@import 'components/layouts/app/app-layout',
+        'components/layouts/app/plain-page-layout',
+        'components/layouts/app/full-width-plain-layout',
+        'components/layouts/app/app-header';
+
+/////////////////////////////////////////////
+// Trumps
+// utilities and helper classes with ability to override anything which goes before in the triangle
+// use immutable declarations (!important)
+/////////////////////////////////////////////
+@import 'trumps/spacing',
+        'trumps/cursor',
+        'trumps/display',
+        'trumps/flex',
+        'trumps/float',
+        'trumps/link',
+        'trumps/position',
+        'trumps/size',
+        'trumps/text',
+        'trumps/vertical-alignment',
+        'trumps/stylistic';

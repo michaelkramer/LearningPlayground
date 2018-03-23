@@ -1,0 +1,21 @@
+// *******************************************
+// *******************************************
+
+    // Textarea components
+
+// *******************************************
+// *******************************************
+
+$unit-default-font-spacing : $unit-default-font-spacing; // settings/layout-units
+$faux-input-value-size     : 14;
+$faux-input-label-size     : 9;
+
+// textarea input element
+.textarea {
+    width           : 100%;
+    height          : auto;
+    background      : $white;
+    font-size       : 16px;
+    line-height     : 24px;
+    padding-top     : rem-calc(8);
+}

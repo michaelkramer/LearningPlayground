@@ -1,0 +1,124 @@
+// *******************************************
+// *******************************************
+
+    // Label components
+
+// *******************************************
+// *******************************************
+//
+$label-sizes        : $label-sizes; // settings/layout-units
+
+@function get-label-size-keys($size, $unit) {
+    // scss-lint:disable NameFormat
+    @return map_get( // get value in size key
+        map_get( // get size key
+            $label-sizes,
+            $size
+        ),
+        $unit
+    );
+    // scss-lint:enable NameFormat
+}
+
+@mixin label--solid($color) {
+    background-color : $color;
+    color            : $white;
+
+    &.label--round {
+        .icon {
+            fill : $white;
+        }
+    }
+}
+
+@mixin label--round($color) {
+    border-radius   : 50%;
+    min-width       : 0;
+    display         : flex;
+    padding         : 0 !important;
+
+    .icon {
+        margin      : 0;
+        fill        : $color;
+        height      : 70%;
+        width       : 70%;
+        line-height : 0;
+    }
+}
+
+@mixin label--size($size-key) {
+    height          : rem-calc(get-label-size-keys($size-key, 'size'));
+    font-size       : rem-calc(get-label-size-keys($size-key, 'font-size'));
+    line-height     : rem-calc(get-label-size-keys($size-key, 'font-size'));
+
+    &.label--round {
+        width           : rem-calc(get-label-size-keys($size-key, 'size'));
+    }
+}
+
+.label {
+    display         : inline-flex;
+    margin          : rem-calc(0 4);
+    padding         : rem-calc(0 4);
+    border          : 1px solid $secondary-1;
+    color           : $secondary-1;
+    border-radius   : 3px;
+    min-width       : rem-calc(81);
+    align-items     : center;
+    justify-content : center;
+    font-size       : rem-calc(13);
+    font-weight     : bold;
+    line-height     : initial;
+    @include label--size('md');
+}
+
+.label--oval {
+    border-radius : rem-calc(14);
+}
+
+.label--solid {
+    @include label--solid($secondary-1);
+}
+
+.label--round {
+    @include label--round($secondary-1);
+}
+
+// label size modifiers
+@each $label-size-key, $label-size in $label-sizes {
+
+    .label--#{$label-size-key} {
+        @include label--size($label-size-key);
+    }
+
+}
+
+.label--dashboard-xl {
+    height          : rem-calc(80);
+    font-size       : rem-calc(32);
+    line-height     : rem-calc(32);
+
+    &.label--round {
+        width           : rem-calc(80);
+    }
+}
+
+@each $label-color-map-key, $label-color-map-color in $all-colors {
+    .label--#{$label-color-map-key} {
+        color : $label-color-map-color;
+        border-color: $label-color-map-color;
+
+        &.label--solid {
+            @include label--solid($label-color-map-color);
+        }
+
+        &.label--round {
+            @include label--round($label-color-map-color);
+        }
+    }
+
+}
+
+.label--no-min-width {
+    min-width: initial;
+}

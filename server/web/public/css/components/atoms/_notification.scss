@@ -1,0 +1,77 @@
+// *******************************************
+// *******************************************
+
+    // Notification and Notification Alert Components
+
+// *******************************************
+// *******************************************
+
+.notification-box {
+    background-color        : $primary;
+    color                   : $white;
+    height                  : rem-calc(15);
+    font-size               : rem-calc(10);
+    font-weight             : bolder;
+    padding-top             : rem-calc(1);
+    border-radius           : 50%;
+    width                   : rem-calc(15);
+    position                : absolute;
+    left                    : rem-calc(15);
+    bottom                  : rem-calc(9);
+}
+
+.notification-container {
+    max-width               : rem-calc(50);
+    max-height              : rem-calc(30);
+    height                  : rem-calc(30);
+    width                   : rem-calc(50);
+    background-color        : $white;
+    display                 : flex;
+    justify-content         : center;
+    margin-left             : rem-calc(10);
+    margin-top              : rem-calc(10);
+}
+
+.notification-display-container {
+    height                  : rem-calc(100);
+    width                   : rem-calc(100);
+    background-color        : $black;
+    color                   : $white;
+}
+
+.notification-meta {
+    justify-content     : center;
+    color               : $gray-500;
+    line-height         : rem-calc(20);
+    overflow            : scroll;
+    max-height          : rem-calc(250);
+    padding             : rem-calc(8);
+}
+
+.notification__border {
+    width           : 100%;
+    padding         : 8px 4px;
+    border-bottom   : 1px dashed $gray-200;
+}
+
+.notification-banners {
+    font-size           : rem-calc(16);
+    color               : $gray-800;
+    font-family         : $sans;
+    font-weight         : bold;
+    text-align          : center;
+    background-color    : $gray-100;
+    height              : rem-calc(36);
+    line-height         : 1;
+    display             : flex;
+    align-items         : center;
+    justify-content     : center;
+}
+
+.notification-banner--top {
+    border-bottom  : 1px solid $gray-200;
+}
+
+.notification-banner--bottom {
+    border-top : 1px solid $gray-200;
+}

@@ -1,0 +1,40 @@
+// *******************************************
+// *******************************************
+
+    // Property Card Component
+
+// *******************************************
+// *******************************************
+
+// @vars
+$unit-default-spacing : $unit-default-spacing; // settings/layout-units
+
+// container
+.property-card {
+    overflow : hidden;
+}
+
+.property-card__slider {
+    border-top-right-radius : 6px;
+    border-top-left-radius  : 6px;
+}
+
+// meta info under image/slider
+.property-card__meta {
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    padding         : rem-calc(0 0 0 $unit-default-spacing);
+    border-bottom   : 1px solid $gray-200;
+}
+
+// footer section
+.property-card__footer {
+    position : relative;
+    padding  : rem-calc($unit-default-spacing);
+}
+
+// link to public listing
+.property-card__footer__public-link {
+    font-size : rem-calc(12);
+}

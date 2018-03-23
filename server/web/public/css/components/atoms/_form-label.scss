@@ -1,0 +1,69 @@
+// *******************************************
+// *******************************************
+
+    // Form Label Components
+
+// *******************************************
+// *******************************************
+
+// @vars
+$form-label-color          : $gray-500;
+$form-label-required-color : $gray-600;
+
+.form-label {
+    position        : relative;
+    display         : inline-block;
+    margin-bottom   : rem-calc(8);
+    margin-right    : rem-calc(12);
+}
+
+.form-label,
+.custom-checkbox span,
+.custom-radio span {
+    font-size   : rem-calc(14);
+    color       : $form-label-color;
+    line-height : rem-calc(14);
+    @include sans-bold;
+}
+
+.custom-checkbox span,
+.custom-radio span {
+    padding : rem-calc(0 6);
+}
+
+.form-label--required::after {
+    content     : '(required)';
+    display     : inline-block;
+    font-size   : rem-calc(14);
+    color       : $form-label-required-color;
+    line-height : rem-calc(14);
+    margin-left : 4px;
+    @include sans-light;
+
+    @media (min-width: $viewport-md) {
+        display     : block;
+        content     : 'required';
+        margin-left : rem-calc(0);
+    }
+}
+
+.form-label--required--horizontal::after {
+    content     : '(required)';
+    display     : inline-block;
+    font-size   : rem-calc(14);
+    color       : $form-label-required-color;
+    line-height : rem-calc(14);
+    margin-left : 4px;
+    @include sans-light;
+}
+
+.form-label--required--positioned::after {
+    position : absolute;
+    top      : 100%;
+    left     : 0;
+}
+
+.form-helper-text {
+    color       : $gray-500;
+    line-height : rem-calc(16);
+}

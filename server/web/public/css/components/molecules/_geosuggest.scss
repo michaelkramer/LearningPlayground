@@ -1,0 +1,42 @@
+// *******************************************
+// *******************************************
+
+    // Geosuggest components
+
+// *******************************************
+// *******************************************
+
+// @vars
+$primary                : $primary; // settings/colors
+
+$geosuggest-transition  : border .1s linear;
+$geosuggest-box-shadow  : 1px 1px 9px rgba($secondary-1, .5);
+$geosuggest-hover-color : rgba($secondary-1, .09);
+
+
+.geosuggest {
+    cursor: pointer;
+
+    &:hover {
+        background: $geosuggest-hover-color;
+    }
+}
+
+.geosuggest-input {
+    -webkit-transition      : $geosuggest-transition;
+    -moz-transition         : $geosuggest-transition;
+    -o-transition           : $geosuggest-transition;
+    -ms-transition          : $geosuggest-transition;
+    transition              : $geosuggest-transition;
+}
+
+.geosuggest-highlight {
+    box-shadow              : $geosuggest-box-shadow;
+    outline                 : 0;
+    border                  : rem-calc(2) solid rgba($secondary-1, .8);
+    -webkit-transition      : $geosuggest-transition;
+    -moz-transition         : $geosuggest-transition;
+    -o-transition           : $geosuggest-transition;
+    -ms-transition          : $geosuggest-transition;
+    transition              : $geosuggest-transition;
+}

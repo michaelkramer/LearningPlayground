@@ -1,0 +1,27 @@
+// *******************************************
+// *******************************************
+
+    // Avatar components
+
+// *******************************************
+// *******************************************
+
+// @vars
+$avatar-shadow : $shadow-light;
+
+.avatar {
+    width         : 100%;
+    height        : 100%;
+    max-width     : rem-calc(165);
+    max-height    : rem-calc(165);
+    box-shadow    : $avatar-shadow;
+    border        : 3px solid $white;
+    border-radius : 50%;
+}
+
+
+// flexible width modifier
+.avatar--flexible {
+    max-width  : none;
+    max-height : none;
+}

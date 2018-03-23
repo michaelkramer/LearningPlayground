@@ -1,0 +1,36 @@
+// *******************************************
+// *******************************************
+
+    // Login Page layout component
+
+// *******************************************
+// *******************************************
+
+// @vars
+$white              : $white; // settings/colors
+$facebook-blue      : $facebook-blue; // settings/colors
+$google-plus-red    : $google-plus-red; // settings/colors
+
+.login-container {
+    width: rem-calc(300);
+    color: $white;
+}
+
+.submit-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-facebook {
+    background-color: $facebook-blue;
+}
+
+.btn-google {
+    background-color: $google-plus-red;
+}
+
+.btn-social {
+    display: inline-flex;
+    align-items: center;
+}

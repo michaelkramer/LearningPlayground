@@ -1,0 +1,68 @@
+// *******************************************
+// *******************************************
+
+    // Entry Page layout component
+    // Ex: Listing detail page
+
+// *******************************************
+// *******************************************
+
+// @vars
+// settings/layout-vars
+$unit-default-spacing : $unit-default-spacing;
+$unit-header-height   : $unit-header-height;
+$unit-grid-4of12      : $unit-grid-4of12;
+$unit-grid-8of12      : $unit-grid-8of12;
+
+// component vars
+$entry-page-padding            : $unit-default-spacing * 3;
+$entry-page-content-720-width  : 720;
+$entry-page-content-960-width  : 960;
+$entry-page-content-1140-width : 1140;
+
+.entry-page {
+    display         : flex;
+    flex-flow       : column;
+    justify-content : flex-start;
+    align-items     : center;
+    min-height      : calc(100vh - #{rem-calc($unit-header-height)});
+}
+
+.entry-page--white {
+    background-color    : $white;
+}
+
+.entry-page__content {
+    flex  : 0 0 auto;
+    width : 100%;
+}
+
+.entry-page__content--720-width {
+    max-width : rem-calc($entry-page-content-720-width);
+}
+
+.entry-page__content--960-width {
+    max-width : rem-calc($entry-page-content-960-width);
+}
+
+.entry-page__content--1140-width {
+    max-width : rem-calc($entry-page-content-1140-width);
+}
+
+.entry-page__panel {
+    display     : flex;
+    align-items : stretch;
+}
+
+.entry-page__panel__sidebar {
+    flex         : 0 0 $unit-grid-4of12;
+    width        : $unit-grid-4of12;
+    padding      : rem-calc($unit-default-spacing * 2);
+    border-right : 1px solid $gray-200;
+    background   : $gray-100;
+}
+
+.entry-page__panel__content {
+    flex       : 1 0 $unit-grid-8of12;
+    min-height : calc(100vh - #{rem-calc($unit-header-height + $unit-touch + ($entry-page-padding * 2))});
+}

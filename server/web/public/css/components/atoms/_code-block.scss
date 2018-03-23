@@ -1,0 +1,20 @@
+// *******************************************
+// *******************************************
+
+    // Code block component styles - this is for displaying a block of code like pug/html, javascript, etc.
+
+// *******************************************
+// *******************************************
+
+.code-block {
+  display           : inline-block;
+  padding           : rem-calc(8);
+  font-size         : rem-calc(16);
+  line-height       : rem-calc(24);
+  word-wrap         : normal;
+  font-family       : monospace;
+  overflow          : auto;
+  background-color  : lighten($primary, 33%);
+  border            : 1px inset $gray-300;
+  font-weight       : 100;
+}

@@ -1,0 +1,46 @@
+// *******************************************
+// *******************************************
+
+    // Dropdown components
+
+// *******************************************
+// *******************************************
+
+// @vars
+$shadow : $shadow; // settings/stylistic
+
+.dropmenu {
+    border     : 1px solid $gray-200;
+    background : $white;
+
+    // arrow
+    &::before,
+    &::after {
+        content  : '';
+        position : absolute;
+    	right    : rem-calc(.2);
+        bottom   : 100%;
+    	width    : 0;
+        height   : 0;
+        border   : solid transparent;
+    }
+
+    &::before {
+        margin-left         : -11px;
+        border-color        : rgba($gray-200, 0);
+    	border-bottom-color : $gray-200;
+    	border-width        : 11px;
+    }
+
+    &::after {
+        margin-left         : -10px;
+        border-color        : rgba($white, 0);
+    	border-bottom-color : $gray-100;
+    	border-width        : 10px;
+    }
+
+}
+
+.dropmenu--shadow {
+    box-shadow : $shadow;
+}

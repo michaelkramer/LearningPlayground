@@ -1,0 +1,24 @@
+// Tooltip container
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+// Tooltip text
+.tooltiptext {
+    position: absolute;
+    z-index: 1;
+    width: 120px; // this may need to be adjusted if we decide to use tooltip elsewhere
+    padding: 5px 0;
+    visibility: hidden;
+    border-radius: 6px;
+    background-color: $gray-500;
+    color: $white;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

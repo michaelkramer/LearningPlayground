@@ -1,0 +1,45 @@
+@keyframes blink {
+  50% {
+    background-color: transparent;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    background-color: transparent;
+  }
+}
+
+.circle {
+    border: 1px solid #666666;
+    border-radius: 50%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+
+    -webkit-box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
+    box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
+    width: 8px;
+    height: 8px;
+    z-index: 86;
+
+    -webkit-transition: background-color .5s ease-in-out;
+    -moz-transition: background-color .5s ease-in-out;
+    -o-transition: background-color .5s ease-in-out;
+    -ms-transition: background-color .5s ease-in-out;
+    transition: background-color .5s ease-in-out;
+}
+
+.circle.success {
+    background-color: $symbolic-success;
+}
+
+.circle.failed {
+    background-color: $symbolic-error;
+}
+
+.circle.pending {
+    background-color: $symbolic-success;
+    animation: blink 1s step-start 0s infinite;
+    -webkit-animation: blink 1s step-start 0s infinite;
+}
+

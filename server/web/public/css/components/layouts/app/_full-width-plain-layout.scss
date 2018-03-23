@@ -1,0 +1,51 @@
+// *******************************************
+// *******************************************
+
+    // App layout component
+    // Dictates plain layout for users not loggedin
+
+// *******************************************
+// *******************************************
+
+// @vars
+
+.full-width-plain-layout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.full-width-plain-layout__container {
+    width           : 100%;
+    display         : flex;
+    align-items     : center;
+    min-height      : 100vh;
+    flex-direction  : column;
+    margin-top      : 24px;
+    padding         : 0 20px;
+
+    @media (min-width: $viewport-sm) {
+        margin-top      : 110px;
+    }
+}
+
+.full-width-plain-layout__svg {
+    max-width       : 632px;
+    width           : 100%;
+    margin-top      : 24px;
+
+    @media (min-width: $viewport-sm) {
+        margin-top      : initial;
+    }
+}
+
+.full-width-plain-layout__title {
+    @extend .h2;
+    margin-bottom : 32px;
+
+    @media (min-width: $viewport-sm) {
+        margin-bottom : 64px;
+    }
+}
