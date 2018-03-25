@@ -15,9 +15,15 @@ function transpileSass() {
   }).css;
 }
 
-function autoprefix(css /*: string */) {
+function transSiteSass() {
+  return sass.renderSync({
+    file: 'server/web/public/css/site.scss',
+  }).css;
+}
+
+function autoprefix(css /*: string */, file: string) {
   return postcss([autoprefixer])
-    .process(css)
+    .process(css, {from: `server/web/public/css/${file}`, to: `server/web/public/css/to_${file}`})
     .then((postcssResult) => {
       postcssResult.warnings().forEach((warn) => {
         log(chalk.white.bold(warn.toString()));
@@ -28,7 +34,7 @@ function autoprefix(css /*: string */) {
 }
 
 function minify(css /*: string */) {
-  return csso.minify(css).css;
+  return css; // csso.minify(css).css;
 }
 
 function writeToFile(css /*: string */) {
@@ -41,12 +47,30 @@ function writeToFile(css /*: string */) {
   });
 }
 
+function writeToFileSite(css /*: string */) {
+  fs.writeFile('server/web/public/css/site.css', css, (err) => {
+    if (err) {
+      throw err;
+    }
+
+    log(chalk.green.bold('Site CSS updated'));
+  });
+}
+
 exports.recompileCSS = () => {
   const transpiledSass = transpileSass();
-  autoprefix(transpiledSass)
+  autoprefix(transpiledSass, 'main.css')
     .then((autoprefixedCSS) => {
       const minifiedCSS = minify(autoprefixedCSS);
       return writeToFile(minifiedCSS);
+    });
+
+  const transpiledSiteSass = transSiteSass();
+
+  autoprefix(transpiledSiteSass, 'site.css')
+    .then((autoprefixedCSS) => {
+      const minifiedCSS = minify(autoprefixedCSS);
+      return writeToFileSite(minifiedCSS);
     });
 };
 

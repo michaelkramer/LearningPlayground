@@ -1,0 +1,20 @@
+html
+  head
+    link(rel='stylesheet', href='/css/main.css')
+    link(rel='stylesheet', href='/css/site.css')
+  body
+    .app-layout__main
+      .app-layout
+        header.app-layout__header.u-mbottom14
+          .title-header
+            button.title-header__navbar-toggle
+              svg(xmlns='http://www.w3.org/2000/svg', viewBox='0 0 24 24')
+                path(d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z')
+            .title-header__title
+              | Style Sheet
+        include /partials/stylesheet/margin.pug
+
+        include /partials/stylesheet/padding.pug
+      
+        include /partials/stylesheet/styling.pug
+      

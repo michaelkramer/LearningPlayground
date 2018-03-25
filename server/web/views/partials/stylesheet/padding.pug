@@ -1,0 +1,48 @@
+section.panel.panel--radius
+  h1.h4.panel__header
+    | Padding
+  .u-flex.panel__content
+    .d-example-area.u-background-purple-400
+      - var n = 0;
+      while n < 49
+        .u-background-blue-400(class=`u-p${n}`)
+          .u-background-green-400
+            | #{n}
+            - n = n + 4
+    .u-flex-grow1.u-mbotton8.u-mleft10
+      .b.u-mbottom8
+        | Padding Full
+      .u-mbottom14
+        .label
+          | Outputs
+        code
+          | .u-p# {padding:0px through padding:48px in increments of 4px}
+      .u-mbottom14
+        .label
+          | Example:
+        code
+          | .u-p8 {
+          |   padding: .5rem!important;
+          | }
+      .b.u-mbottom8
+        | Single Side Padding Function
+      .u-mbottom14
+        .label
+          | Outputs
+        code
+          | .u-ptop# {padding-top:0px through padding-top:48px in increments of 4px}
+      .u-mbottom14
+        .label
+          | Outputs
+        code
+          | .u-pright# {padding-right:0px through padding-right:48px in increments of 4px}
+      .u-mbottom14
+        .label
+          | Outputs
+        code
+          | .u-pbottom# {padding-bottom:0px through padding-bottom:48px in increments of 4px}
+      .u-mbottom14
+        .label
+          | Outputs
+        code
+          | .u-pleft# {padding-left:0px through padding-left:48px in increments of 4px}

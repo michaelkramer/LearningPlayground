@@ -1,0 +1,65 @@
+section.panel.panel--radius
+  h1.h4.panel__header
+    | Colors
+  .panel__content
+    -
+      var allColors = [
+        {name: 'primary', color: '#f15953', title: 'Branded' },
+        {name: 'primary-dark', color: '#d24f45', title: 'Branded' },
+        {name: 'secondary-1', color: '#55c3ba', title: 'Branded' },
+        {name: 'secondary-1-dark', color: '#44b0a7', title: 'Branded' },
+        {name: 'secondary-2', color: '#2e7fc2', title: 'Branded' },
+        {name: 'secondary-3', color: '#ffc629', title: 'Branded' },
+        {name: 'branded-gray', color: '#5a5b5c', title: 'Branded' },
+        {name: 'white', color: '#fff', title: 'Grayscale' },
+        {name: 'gray-050', color: '#fbfcfd', title: 'Grayscale' },
+        {name: 'gray-100', color: '#edf1f4', title: 'Grayscale' },
+        {name: 'gray-200', color: '#dde2e7', title: 'Grayscale' },
+        {name: 'gray-300', color: '#ccd2d8', title: 'Grayscale' },
+        {name: 'gray-400', color: '#b3bac1', title: 'Grayscale' },
+        {name: 'gray-500', color: '#888f96', title: 'Grayscale' },
+        {name: 'gray-600', color: '#60686f', title: 'Grayscale' },
+        {name: 'gray-700', color: '#4b565f', title: 'Grayscale' },
+        {name: 'gray-800', color: '#5a5b5c', title: 'Grayscale' },
+        {name: 'gray-900', color: '#232c35', title: 'Grayscale' },
+        {name: 'black', color: '#11181e', title: 'Grayscale' },
+        {name: 'symbolic-success', color: '#55c3ba', title: 'Symbolic' },
+        {name: 'symbolic-warning', color: '#ffa726', title: 'Symbolic' },
+        {name: 'symbolic-error', color: '#cf4848', title: 'Symbolic' },
+        {name: 'symbolic-info', color: '#2e7fc2', title: 'Symbolic' },
+        {name: 'pink-400', color: '#ec407a', title: 'Utility Colors' },
+        {name: 'purple-400', color: '#ab47bc', title: 'Utility Colors' },
+        {name: 'deep-purple-400', color: '#7e57c2', title: 'Utility Colors' },
+        {name: 'indigo-400', color: '#5c6bc0', title: 'Utility Colors' },
+        {name: 'blue-400', color: '#42a5f5', title: 'Utility Colors' },
+        {name: 'light-blue-400', color: '#29b6f6', title: 'Utility Colors' },
+        {name: 'cyan-400', color: '#26c6da', title: 'Utility Colors' },
+        {name: 'teal-400', color: '#26a69a', title: 'Utility Colors' },
+        {name: 'green-400', color: '#66bb6a', title: 'Utility Colors' },
+        {name: 'light-green-400', color: '#9ccc65', title: 'Utility Colors' },
+        {name: 'lime-400', color: '#d4e157', title: 'Utility Colors' },
+        {name: 'yellow-400', color: '#ffee58', title: 'Utility Colors' },
+        {name: 'amber-400', color: '#ffca28', title: 'Utility Colors' },
+        {name: 'orange-400', color: '#ffa726', title: 'Utility Colors' },
+        {name: 'deep-orange-400', color: '#ff7043', title: 'Utility Colors' },
+        {name: 'brown-400', color: '#8d6e63', title: 'Utility Colors' },
+      ];
+    
+    each colors, index in _.groupBy(allColors, 'title')
+      h3.h3=index
+      .u-flex-row.u-flex.u-flex-wrap.u-mbottom24
+        each color in colors
+          .color-swatch
+            .color-swatch__name=color.name
+            .color-swatch__color(class=`u-background-${color.name}`)
+            .color-swatch__hex=color.color
+
+    //- .u-flex-grow1.u-mbotton8.u-mleft10
+    //-   .b.u-mbottom8
+    //-     | Text Color
+    //-   .u-mbottom14
+    //-     .label
+    //-       | Outputs
+    //-     code
+    //-       {| .u-text-#{$u-text-key}', u-text-'color',
+    //-       | }
