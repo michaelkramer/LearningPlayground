@@ -1,0 +1,11 @@
+.lead-routing__condition-container {
+    .input {
+        margin-bottom: rem-calc(8);
+
+        @media (min-width: $viewport-md) {
+            margin-bottom: rem-calc(16);
+        }
+    }
+
+
+}

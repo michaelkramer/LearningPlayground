@@ -1,0 +1,47 @@
+// *******************************************
+// *******************************************
+
+    // App layout component
+    // Dictates plain layout for users not loggedin
+
+// *******************************************
+// *******************************************
+
+// @vars
+
+.plain-page-layout {
+    font-family : 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+    @media (min-width: $viewport-md) {
+        padding     : 42px;
+    }
+
+    .plain-page-layout__content {
+        padding    : 25px;
+        max-width  : 720px;
+        min-height : 50vh;
+        margin     : 0 auto;
+        box-shadow : 0 0 9px rgba(32, 36, 43, .22);
+        border     : 1px solid #d7d9e0;
+        background : $white;
+
+        &.plain-page-layout__content-wide {
+            padding: 0;
+            max-width: 100%;
+        }
+
+        h1 {
+            margin-bottom : 32px;
+            font-size     : 24px;
+            text-align    : center;
+        }
+
+        li {
+            margin-bottom : 16px;
+        }
+
+        .plain-layout__title {
+            line-height: 32px;
+        }
+    }
+}

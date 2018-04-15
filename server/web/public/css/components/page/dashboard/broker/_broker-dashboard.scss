@@ -1,0 +1,284 @@
+// *******************************************
+// *******************************************
+
+    // Broker Dashboard Page layout component
+
+// *******************************************
+// *******************************************
+
+$gray-200                           : $gray-200; // settings/colors
+$white                              : $white; // settings/colors
+$broker-dashboard-header-width      : 1670;
+$broker-dashboard-header-padding    : 20;
+
+.broker-dashboard__message {
+    font-size       : rem-calc(21);
+    font-weight     : 600;
+    padding-left    : rem-calc($broker-dashboard-header-padding);
+    padding-top     : 32px;
+    padding-bottom  : 8px;
+}
+
+.broker-dashboard__content {
+    margin-top  : rem-calc(16);
+    border-top  : 1px solid $gray-200;
+}
+
+.broker-dashboard__summary {
+    display         : flex;
+    justify-content : space-evenly;
+    flex-direction  : column;
+
+    @media (min-width: $viewport-sm) {
+        flex-direction  : row;
+    }
+}
+
+.broker-dashboard__summary__box {
+    border-right    : 1px solid $gray-100;
+    border-bottom   : 1px solid $gray-100;
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    position        : relative;
+    min-height      : 95px;
+
+    @media (min-width: $viewport-sm) {
+        width           : calc(100% - #{rem-calc($nav-card-margin-right)});
+        padding-top     : 7%;
+    }
+}
+
+.broker-dashboard__summary__box__content {
+    position        : absolute;
+    top             : 50%;
+    left            : 50%;
+    bottom          : 0;
+    right           : 0;
+    transform       : translate(-50%, -50%);
+    height          : 100%;
+    width           : 100%;
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    justify-content : center;
+    line-height     : 28px;
+    text-align      : center;
+
+    .small {
+        line-height: 10px;
+    }
+}
+
+.broker-dashboard__summary__num {
+    color           : $secondary-1;
+    font-size       : 24px;
+    line-height     : 40px;
+    font-weight     : 100;
+
+    @media (min-width: $viewport-md) {
+        font-size     : 32px;
+        line-height   : 40px;
+    }
+
+    @media (min-width: $viewport-lg) {
+        font-size   : 40px;
+        line-height : 60px;
+    }
+}
+
+.broker-dashboard__list-title {
+    height          : 77px;
+    display         : flex;
+    align-items     : center;
+    border-bottom   : 1px solid $gray-200;
+    font-weight     : 600;
+    padding         : 0 24px;
+}
+
+.broker-dashboard-tooltip {
+    position        : absolute;
+    padding         : 4px;
+    font            : 12px sans-serif;
+    background      : white;
+    border          : 1px solid #cccccc;
+    box-shadow      : 5px 3px #cccccc;
+    pointer-events  : none;
+
+    span {
+        display: block;
+        width: 100%;
+    }
+}
+
+.broker-dashboard__content a[href] {
+    cursor  : pointer;
+}
+
+/* below are minor changes to specific icons
+in the nav cards to make them fit the cards better. */
+.broker-dashboard__nav-card__clock {
+    .icon {
+        margin-left : rem-calc(.6) !important;
+    }
+}
+
+.broker-dashboard__nav-card__gci {
+    .icon {
+        width   : 73% !important;
+        height  : 73% !important;
+    }
+}
+
+.bar-chart-container {
+    overflow-x  : scroll;
+
+    @media (min-width: $viewport-lg) {
+        min-width   : 650px;
+        flex        : 1 1 0%;
+    }
+}
+
+.dashboard-chart-padding {
+    padding         : 40px;
+    padding-left    : 0;
+    padding-top     : 0;
+
+    @media (min-width: $viewport-sm) {
+        padding-left    : 40px;
+    }
+}
+
+.broker-dashboard__content__filter {
+    box-sizing      : border-box;
+    display         : flex;
+    justify-content : flex-end;
+    align-items     : center;
+    height          : rem-calc($panel-header-height); // 48
+    padding         : rem-calc($panel-spacing); // 16
+    border-bottom   : 1px solid $gray-200;
+    background      : $white;
+}
+
+.broker-dashboard__content__filter__container {
+    display             : flex;
+    align-items         : center;
+    justify-content     : flex-end;
+    width               : 100%;
+}
+
+.broker-dashboard__content__filter__helper {
+      font-size     : rem-calc(14);
+      font-weight   : 600;
+      border-left   : 0;
+
+      @media (min-width: $viewport-sm) {
+        width   : 115px;
+    }
+}
+
+.dashboard-filter-box {
+    align-items     : center;
+    justify-content : space-between;
+    width           : 100%;
+    border-bottom   : 1px solid $gray-200;
+    height          : rem-calc($unit-touch);
+    padding         : rem-calc(0 $unit-default-spacing);
+    border-left     : 1px solid $gray-200;
+    font-size       : rem-calc(13);
+    color           : $gray-600;
+    display         : flex;
+    width           : 100%;
+
+    @media (min-width: $viewport-sm) {
+        border-bottom   : 0;
+        max-width: 215px;
+    }
+
+    .select-limit {
+        display : flex;
+    }
+}
+
+// these are for when we have more than 3 filters for
+// the dashboard filter - they would then need to be vertical
+.dashboard-filter-mobile-vertical {
+    border-bottom   : 1px solid $gray-200;
+    display         : flex;
+    justify-content : flex-end;
+
+    .dashboard-filter-mobile-vertical__content {
+        display         : flex;
+        flex-direction  : column;
+        width           : 100%;
+        max-width       : 700px;
+
+        @media (min-width: $viewport-sm) {
+            flex-direction  : row;
+        }
+    }
+}
+
+.broker-dashboard-attention-board {
+    border      : 0;
+    font-weight : 600;
+    // cursor      : pointer;
+
+    .card-header {
+        cursor: pointer;
+    }
+
+    &.warning {
+        border-color : lighten($symbolic-warning, 30%);
+        .card-header {
+            border-bottom  : 2px solid lighten($symbolic-warning, 30%);
+            @extend .alert-warning
+        }
+        .icon {
+            fill : darken($symbolic-warning, 23%);
+        }
+        .table__thead {
+            background-color : rgba(lighten($symbolic-warning, 40%), .4);
+        }
+        .td {
+            background : rgba(lighten($symbolic-warning, 40%), .4);
+        }
+    }
+
+    &.danger {
+        border-color : lighten($symbolic-error, 36%);
+        .card-header {
+            border-bottom : 2px solid lighten($symbolic-error, 37%);
+            @extend .alert-danger
+        }
+        .icon {
+            fill : darken($symbolic-error, 20%);
+        }
+        .table__thead {
+            background-color : rgba(lighten($symbolic-error, 42%), .4);
+        }
+        .td {
+            background : rgba(lighten($symbolic-error, 42%), .4);
+        }
+    }
+
+    .icon {
+        margin-right : 10px;
+    }
+
+    .card-block {
+        border-bottom : $gray-200;
+    }
+
+    .tbody--stripe .tr:nth-child(even) {
+        background : $white;
+    }
+}
+
+.broker-dashboard__sort {
+    padding-top: 1px; // fixes the top border from not showing
+
+    .form-group {
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,103 @@
+// *******************************************
+// *******************************************
+
+    // App header component
+
+// *******************************************
+// *******************************************
+
+// @vars
+$app-header-height              : $unit-header-height; // settings/layout-units
+$app-header-branding-width      : $unit-navbar-width; // settings/layout-units
+$app-header-branding-spacing    : 25;
+
+
+// header region container
+.app-layout__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: rem-calc($app-header-height);
+    background: $app-layout-region-background-color;
+    border-bottom: 1px solid $gray-200;
+}
+
+
+// Hamburger and page title
+.title-header {
+    display: flex;
+    align-items: center;
+}
+.title-header__navbar-toggle {
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    fill: $gray-500;
+}
+.title-header__title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    color: $gray-500;
+}
+
+// user actions container element
+.user-header {
+    display             : flex;
+    justify-content     : flex-end;
+    padding-right       : 12px;
+}
+
+
+/////////////////////////////////////////////
+// header user area
+/////////////////////////////////////////////
+.user-header__user {
+    position        : relative;
+    display         : flex;
+    justify-content : flex-end;
+    align-items     : center;
+    height          : rem-calc($app-header-height);
+}
+
+.app-header__notification {
+    position        : relative;
+    display         : flex;
+    justify-content : flex-end;
+    align-items     : center;
+    height          : rem-calc($app-header-height);
+}
+
+.user-header__user-dropdown-menu {
+    right : rem-calc(0);
+    width : rem-calc(200);
+}
+
+.app-header__notification-dropdown-menu {
+    width : rem-calc(320);
+    right : rem-calc(16);
+}
+
+.app-header__phone-dropdown-menu {
+    right : rem-calc(-15);
+    width : rem-calc(225);
+}
+
+
+.user-header__user__avatar {
+    margin-right : rem-calc(10);
+}
+
+.user-header__user__name {
+    display: none;
+
+    @media (min-width: $viewport-md) {
+        display: block;
+    }
+}
+
+.user-header__user__drop-caret {
+    margin      : rem-calc(0 0 0 9);
+    line-height : 0;
+}

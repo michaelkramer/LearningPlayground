@@ -1,0 +1,47 @@
+section.panel.panel--radius
+  h1.h4.panel__header
+    | Margins
+  .u-flex.panel__content
+    .d-example-area.u-background-purple-400
+      - var n = 0;
+      while n < 73
+        .u-background-blue-400(class=`u-m${n}`)
+          | #{n}
+          - n = n + 4
+    .u-flex-grow1.u-mbotton8.u-mleft10
+      .b.u-mbottom8
+        | Margin Full
+      .u-mbottom14
+        .label
+          | Outputs
+        code
+          | .u-m# {margin:0px through margin:72px in increments of 4px}
+      .u-mbottom14
+        .label
+          | Example:
+        code
+          | .u-m8 {
+          |   margin: .5rem!important;
+          | }
+      .b.u-mbottom8
+        | Single Side Margin Function
+      .u-mbottom14
+        .label
+          | Outputs
+        code
+          | .u-mtop# {margin-top:0px through margin-top:72px in increments of 4px}
+      .u-mbottom14
+        .label
+          | Outputs
+        code
+          | .u-mright# {margin-right:0px through margin-right:72px in increments of 4px}
+      .u-mbottom14
+        .label
+          | Outputs
+        code
+          | .u-mbottom# {margin-bottom:0px through margin-bottom:72px in increments of 4px}
+      .u-mbottom14
+        .label
+          | Outputs
+        code
+          | .u-mleft# {margin-left:0px through margin-left:72px in increments of 4px}

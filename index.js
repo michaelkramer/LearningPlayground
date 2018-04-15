@@ -13,7 +13,7 @@ const startWebServer = require('./web').startWebServer;
 
 process.env.VERSION = process.env.NODE_ENV === 'production' ? packageJson.version : String(Date.now());
 
-startWebServer();
+// startWebServer();
 program
   .command('web')
   .description('start a web server')
@@ -33,9 +33,9 @@ if (!process.argv.slice(2).length) {
   program.outputHelp();
   process.exit(1);
 } else {
-  console.log('you ordered a pizza with:');
-  if (program.peppers) console.log('  - peppers');
-  if (program.pineapple) console.log('  - pineapple');
-  if (program.bbqSauce) console.log('  - bbq');
-  console.log('  - %s cheese', program.cheese);
+  // console.log('you ordered a pizza with:');
+  // if (program.peppers) console.log('  - peppers');
+  // if (program.pineapple) console.log('  - pineapple');
+  // if (program.bbqSauce) console.log('  - bbq');
+  // console.log('  - %s cheese', program.cheese);
 }

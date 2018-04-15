@@ -1,0 +1,106 @@
+// *******************************************
+// *******************************************
+
+    // Nav Cards component
+
+// *******************************************
+// *******************************************
+$gray-050                   : $gray-050; // settings/colors
+$primary                    : $primary; // settings/colors
+$white                      : $white; // settings/colors
+$gray-500                   : $gray-500; // settings/colors
+$nav-card-margin-right      : 8;
+$nav-card-border-color      : #EEF1F4;
+$card-container-padding     : 40;
+$nav-cards-broker-spacing   : ($card-container-padding + ($nav-card-margin-right * 6));
+$nav-cards-agent-spacing    : ($card-container-padding + ($nav-card-margin-right * 5));
+
+.nav-cards {
+    display         : flex;
+    flex-direction  : row;
+    padding         : rem-calc(12 20 40);
+    margin-top      : rem-calc(25);
+}
+
+.nav-cards__card {
+    background      : $gray-050;
+    border          : 1px solid $nav-card-border-color;
+    box-shadow      : 0 2px 4px 0 rgba(18,24,30,0.10);
+    border-radius   : rem-calc(3);
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    position        : relative;
+    width           : 110px;
+    height          : 110px;
+    margin-right    : rem-calc($nav-card-margin-right);
+    flex-shrink     : 0;
+    max-width       : 300px;
+    max-height      : 300px;
+
+    &.nav-cards__card--active {
+        z-index         : $stack-bot;
+        box-shadow      : 0 6px 14px 0 rgba(18,24,30,0.30);
+        border-bottom   : 5px solid $primary;
+        transform       : scale(1.2,1.2);
+        background      : $white;
+    }
+
+    // Cards over medium breakpoint will scale based on viewport width + number of columns
+    @media (min-width: $viewport-md) {
+        .nav-cards-broker & {
+            width: calc(calc(100vw - #{rem-calc($unit-navbar-width + $nav-cards-broker-spacing)}) / 7);
+            height: calc(calc(100vw - #{rem-calc($unit-navbar-width + $nav-cards-broker-spacing)}) / 7);
+        }
+
+        .nav-cards-agent & {
+            width: calc(calc(100vw - #{rem-calc($unit-navbar-width + $nav-cards-agent-spacing)}) / 6);
+            height: calc(calc(100vw - #{rem-calc($unit-navbar-width + $nav-cards-agent-spacing)}) / 6);
+        }
+    }
+}
+
+.nav-cards__card__content {
+    position        : absolute;
+    top             : 50%;
+    left            : 50%;
+    bottom          : 0;
+    right           : 0;
+    transform       : translate(-50%, -50%);
+    height          : 100%;
+    width           : 100%;
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    justify-content : center;
+    border-top      : 2.5px solid transparent;
+    border-bottom   : 2.5px solid transparent;
+}
+
+.nav-cards__card__content__label {
+    height          : 50%;
+    width           : 50% !important;
+    border-width    : rem-calc(1);
+    text-align      : center;
+    color           : $white;
+
+    @media (min-width: $viewport-sm) {
+        border-width    : rem-calc(2);
+    }
+}
+
+.nav-cards__card__icon {
+    height: 60% !important;
+    width: 60% !important;
+}
+
+.nav-cards__card__content__title {
+    font-size       : rem-calc(14);
+    font-weight     : 600;
+    margin-top      : 3%;
+    color           : $gray-500;
+
+    @media (min-width: $viewport-lg) {
+        font-size   : rem-calc(18);
+    }
+}

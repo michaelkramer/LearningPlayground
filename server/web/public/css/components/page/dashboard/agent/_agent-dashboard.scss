@@ -1,0 +1,165 @@
+// *******************************************
+// *******************************************
+
+    // Agent Dashboard Page layout component
+
+// *******************************************
+// *******************************************
+
+$gray-200                           : $gray-200; // settings/colors
+$white                              : $white; // settings/colors
+$agent-dashboard-header-width      : 1670;
+$agent-dashboard-header-padding    : 20;
+
+.agent-dashboard__header {
+    padding-top     : rem-calc($agent-dashboard-header-padding);
+    padding-left    : 0;
+    padding-bottom  : 0;
+    max-width       : rem-calc($agent-dashboard-header-width);
+    padding-right   : 0;
+
+    @media (min-width: $viewport-sm) {
+        padding-right : rem-calc($agent-dashboard-header-padding);
+    }
+}
+
+.agent-dashboard__message {
+    font-size       : rem-calc(21);
+    font-weight     : 600;
+    padding-left    : rem-calc($agent-dashboard-header-padding);
+    padding-top     : 32px;
+    padding-bottom  : 8px;
+}
+
+.agent-dashboard__content {
+    margin-top  : rem-calc(16);
+    border-top  : 1px solid $gray-200;
+}
+
+.agent-dashboard__summary {
+    display         : flex;
+    justify-content : space-evenly;
+    flex-direction  : column;
+
+    @media (min-width: $viewport-sm) {
+        flex-direction  : row;
+    }
+}
+
+.agent-dashboard__summary__box {
+    border-right    : 1px solid $gray-100;
+    border-bottom   : 1px solid $gray-100;
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    position        : relative;
+    min-height      : 95px;
+
+    @media (min-width: $viewport-sm) {
+        width           : calc(100% - #{rem-calc($nav-card-margin-right)});
+        padding-top     : 7%;
+    }
+}
+
+.agent-dashboard__summary__box__content {
+    position        : absolute;
+    top             : 50%;
+    left            : 50%;
+    bottom          : 0;
+    right           : 0;
+    transform       : translate(-50%, -50%);
+    height          : 100%;
+    width           : 100%;
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    justify-content : center;
+    line-height     : 28px;
+    text-align      : center;
+}
+
+.agent-dashboard__summary__num {
+    color           : $secondary-1;
+    font-size       : 24px;
+    line-height     : 40px;
+    font-weight     : 100;
+
+    @media (min-width: $viewport-md) {
+        font-size     : 32px;
+        line-height   : 40px;
+    }
+
+    @media (min-width: $viewport-lg) {
+        font-size   : 40px;
+        line-height : 60px;
+    }
+}
+
+.agent-dashboard__list-title {
+    height          : 77px;
+    display         : flex;
+    align-items     : center;
+    border-bottom   : 1px solid $gray-200;
+    font-weight     : 600;
+    padding         : 0 24px;
+}
+
+.agent-dashboard-tooltip.arrow {
+    position        : absolute;
+    text-align      : center;
+    width           : 80px;
+    height          : 60px;
+    padding         : 2px;
+    font            : 12px sans-serif;
+    background      : white;
+    border          : 1px solid #cccccc;
+    box-shadow      : 5px 3px #cccccc;
+    pointer-events  : none;
+    text-align      : center;
+}
+
+.agent-dashboard__content a[href] {
+    cursor  : pointer;
+}
+
+/* below are minor changes to specific icons
+in the nav cards to make them fit the cards better. */
+.agent-dashboard__nav-card__clock {
+    .icon {
+        margin-left : rem-calc(.6) !important;
+    }
+}
+
+.agent-dashboard__nav-card__gci {
+    .icon {
+        width   : 73% !important;
+        height  : 73% !important;
+    }
+}
+
+.agent-dashboard__content__filter {
+    box-sizing      : border-box;
+    display         : flex;
+    justify-content : flex-end;
+    align-items     : center;
+    height          : rem-calc($panel-header-height); // 48
+    padding         : rem-calc($panel-spacing); // 16
+    border-bottom   : 1px solid $gray-200;
+    background      : $white;
+}
+
+.agent-dashboard__content__filter__container {
+    display     : flex;
+    align-items : center;
+    width       : 590px;
+}
+
+.agent-dashboard__content__filter__helper {
+      font-size     : rem-calc(14);
+      font-weight   : 600;
+      border-left   : 0;
+
+      @media (min-width: $viewport-sm) {
+        width   : 280px;
+    }
+}

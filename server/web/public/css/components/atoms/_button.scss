@@ -1,0 +1,404 @@
+// *******************************************
+// *******************************************
+
+    // Button component styles
+
+// *******************************************
+// *******************************************
+
+// @vars
+$button-default-height     : $unit-touch; // settings/layout-units
+$button-max-width          : $unit-max-line-length; // settings/layout-units
+$button-edge-space         : $unit-default-spacing * 2; // settings/layout-units
+$button-colors             : $button-colors; // settings/colors
+$button-sizes              : $button-sizes; // settings/layout-units
+$button-shadows            : $shadows; // settings/stylistic
+$button-transition         : background-color 250ms ease,
+                             text-shadow 250ms ease;
+$button-outline-transition : border 250ms ease,
+                             color 250ms ease;
+$button-radius             : 50px;
+$light-gray                : $gray-200;
+$dark-gray                 : $gray-600;
+
+@function get-button-size-keys($size, $unit) {
+    // scss-lint:disable NameFormat
+    @return map_get( // get value in size key
+        map_get( // get size key
+            $button-sizes,
+            $size
+        ),
+        $unit
+    );
+    // scss-lint:enable NameFormat
+}
+
+@function get-button-text-color($color) {
+
+    @if (lightness($color) > 70) {
+        @return $gray-700;
+    } @else {
+        @return $white;
+    }
+
+}
+
+@function get-outline-button-text-color($color) {
+
+    @if (lightness($color) > 70) {
+        @return $gray-700;
+    } @else {
+        @return $color;
+    }
+
+}
+
+@function get-button-text-shadow($color) {
+
+    @if (lightness($color) > 70) {
+        @return $text-shadow-white;
+    } @else {
+        @return $text-shadow;
+    }
+
+}
+
+@mixin button--outline($button-color) {
+    border        : 1px solid $button-color;
+    background    : transparent;
+    color         : get-outline-button-text-color($button-color);
+    transition    : $button-outline-transition;
+
+    &::before {
+        display : none;
+    }
+
+    &:active {
+        border-color : shade($button-color, 15%);
+        color        : shade($button-color, 15%);
+    }
+
+    &.button--disabled,
+    &[disabled] {
+        @include button--disabled--outline();
+    }
+}
+
+@mixin button--solid($button-color) {
+    background  : $button-color;
+    color       : $white;
+}
+
+@mixin button--plain($button-color) {
+    border      : 0;
+    background  : transparent !important;
+    color       : $button-color;
+
+    &:hover,
+    &:focus {
+        color : tint($button-color, 15%);
+    }
+
+    &.button--disabled,
+    &[disabled] {
+        color : rgba($button-color, .5);
+    }
+
+    &:active {
+        box-shadow  : none;
+    }
+
+    &::before {
+        display : none !important;
+    }
+}
+
+@mixin button--disabled() {
+    background      : $gray-100 !important;
+    color           : $gray-300 !important;
+    cursor          : not-allowed;
+
+    &::before {
+        display : none !important;
+    }
+
+    &:hover,
+    &:focus {
+        background      : $gray-100 !important;
+        color           : $gray-300 !important;
+    }
+}
+
+@mixin button--disabled--outline() {
+    background      : transparent !important;
+    border          : 1px solid $gray-100;
+    color           : $gray-300;
+
+    &:hover,
+    &:focus {
+        background      : transparent !important;
+        border          : 1px solid $gray-100;
+        color           : $gray-300;
+    }
+}
+
+// button defaults / .button--primary default
+.button {
+    position        : relative;
+    display         : inline-block;
+    height          : rem-calc(get-button-size-keys('md', 'size'));
+    min-width       : rem-calc(138);
+    max-width       : rem-calc($button-max-width);
+    margin          : rem-calc(0 0 $button-edge-space 0);
+    padding         : rem-calc(0 $button-edge-space);
+    overflow        : hidden;
+    font-size       : rem-calc(get-button-size-keys('md', 'font-size'));
+    text-align      : center;
+    text-decoration : none;
+    transition      : $button-transition;
+    border-radius   : rem-calc(3);
+    text-shadow     : none !important;
+    cursor          : pointer;
+    @include button--solid($primary);
+    @include sans-bold;
+
+    // mask out button
+    &::before {
+        content    : '';
+        position   : absolute;
+        top        : 0;
+        right      : 0;
+        bottom     : 0;
+        left       : 0;
+        z-index    : $stack-bot;
+        background : transparent;
+        transition : $button-transition;
+    }
+
+    &:hover,
+    &:focus {
+        outline     : none; // JW changed on 3/25 from 3px solid rgba($primary, .5)
+        background  : $primary-dark;
+
+        &::before {
+            background : rgba($white, .1);
+        }
+
+    }
+
+    &:active {
+        box-shadow  : $shadow-inset;
+    }
+
+    &.button--disabled,
+    &.button[disabled] {
+        @include button--disabled();
+    }
+
+    &.button--outline {
+        @include button--outline($primary);
+
+        &:hover,
+        &:focus {
+            background : rgba($primary-dark, .04)
+        }
+    }
+
+    &.button--plain {
+        @include button--plain($primary);
+    }
+
+    &.button--left,
+    &.button--right,
+    &.button--middle {
+        @include button--outline($primary);
+
+        &.button--active {
+            @include button--solid($primary);
+        }
+    }
+
+    .icon {
+        margin-left : -5px;
+    }
+}
+
+// button flexbox layout
+// direct child of button element
+.button__layout {
+    position        : relative;
+    z-index         : $stack-mid;
+    display         : flex;
+    justify-content : center;
+    align-content   : center;
+    align-items     : center;
+    height          : 100%;
+    white-space     : nowrap;
+}
+
+.button--left {
+    border-radius   : rem-calc(3 0 0 3);
+}
+
+.button--right {
+    border-radius   : rem-calc(0 3 3 0);
+}
+
+.button--middle {
+    border-radius   : rem-calc(0);
+}
+
+// disabled modifier
+.button--disabled,
+.button[disabled] {
+    @include button--disabled();
+}
+
+// button size modifiers
+@each $button-size-key, $button-size in $button-sizes {
+
+    .button--#{$button-size-key} {
+        height    : rem-calc(get-button-size-keys($button-size-key, 'size'));
+        font-size : rem-calc(get-button-size-keys($button-size-key, 'font-size'));
+    }
+
+}
+
+// button secondary modifier
+.button--secondary {
+    @include button--solid($secondary-1);
+
+    &:hover,
+    &:focus {
+        background : $secondary-1-dark;
+    }
+
+    &.button--outline {
+        @include button--outline($secondary-1);
+
+        &:hover,
+        &:focus {
+            background  : rgba($secondary-1-dark, .04)
+        }
+    }
+
+    &.button--plain {
+        @include button--plain($secondary-1);
+    }
+
+    &.button--left,
+    &.button--right,
+    &.button--middle {
+        @include button--outline($secondary-1);
+
+        &.button--active {
+            @include button--solid($secondary-1);
+        }
+    }
+}
+
+// button light gray modifier
+.button--light-gray {
+    @include button--solid($light-gray);
+    color : $gray-500;
+
+    &:hover,
+    &:focus {
+        background  : $gray-100;
+        color       : $gray-600;
+    }
+
+    &.button--outline {
+        @include button--outline($light-gray);
+        color: $gray-500;
+
+        &:hover,
+        &:focus {
+            background : $gray-050;
+        }
+    }
+
+    &.button--plain {
+        @include button--plain($light-gray);
+    }
+
+    &.button--left,
+    &.button--right,
+    &.button--middle {
+        @include button--outline($light-gray);
+        color : $gray-500;
+
+        &.button--active {
+            @include button--solid($light-gray);
+            color : $gray-500 !important;
+        }
+    }
+}
+
+// button dark gray modifier
+.button--dark-gray {
+    @include button--solid($dark-gray);
+
+    &:hover,
+    &:focus {
+        background : $gray-900;
+    }
+
+    &.button--outline {
+        @include button--outline($dark-gray);
+
+        &:hover,
+        &:focus {
+            color       : $gray-700;
+            background  : $gray-050;
+        }
+    }
+
+    &.button--plain {
+        @include button--plain($dark-gray);
+    }
+
+    &.button--left,
+    &.button--right,
+    &.button--middle {
+        @include button--outline($dark-gray);
+
+        &.button--active {
+            @include button--solid($dark-gray);
+        }
+    }
+}
+
+// expand modifier
+.button--expand {
+    display : block;
+    width   : 100%;
+}
+
+// no min width modifier
+.button--no-min-width {
+    min-width : 0 !important;
+}
+
+// border-radius modifier
+.button--no-radius {
+    border-radius : 0;
+}
+
+// hack that styles upload care upload buttons
+// don't use this class, already is added to button automatically when using upload care.
+.uploadcare-widget {
+    line-height     : 0;
+
+    .uploadcare-widget-button {
+        @extend .button;
+        @extend .button--secondary;
+        @include button--outline($secondary-1);
+        padding         : rem-calc(12);
+        margin          : 0;
+
+        &:hover {
+            background  : rgba($secondary-1-dark, .04)
+        }
+    }
+}

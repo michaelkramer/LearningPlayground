@@ -1,0 +1,157 @@
+// *******************************************
+// *******************************************
+
+    // Lead sidebar component styles
+
+// *******************************************
+// *******************************************
+
+// @vars
+$unit-grid-gutter : $unit-grid-gutter; // settings/layout-units
+
+.lead-detail-sidebar__chip__stats {
+    margin     : rem-calc(9 0);
+    padding    : rem-calc(12 0);
+    border-top : 1px solid $gray-200;
+}
+
+.lead-detail-sidebar__lead-status-form {
+    margin        : rem-calc((-$unit-grid-gutter) (-$unit-grid-gutter) 0);
+    padding       : rem-calc($unit-grid-gutter);
+}
+
+
+// *******************************************
+// *******************************************
+
+    // Lead Listings page compoent styles
+    // /leads/:leadId/listings
+
+// *******************************************
+// *******************************************
+
+
+.lead-listings__table {
+    width     : 100%;
+}
+
+// match header height to tabs in search filter
+// 1. subtract 1px for border height
+.lead-listings__table__thead__th {
+    height         : rem-calc($unit-touch - 1); // 1.
+    padding-top    : 0;
+    padding-bottom : 0;
+}
+
+th.sortable {
+    cursor: pointer;
+}
+
+th.sortable i {
+    padding-left: 5px;
+}
+
+
+// *******************************************
+// *******************************************
+
+    // Lead Communication Page Componet
+    // /leads/:leadId/communication
+
+// *******************************************
+// *******************************************
+
+.lead-communication__action {
+    margin     : rem-calc(-21 -21 21 -21);
+    padding    : rem-calc(21);
+    background : $gray-100;
+    color      : $white;
+}
+
+
+.lead-communication__message--dark {
+     background: $gray-100;
+
+}
+.lead-communication__message--light {
+    background : tint($gray-050, 80%);
+}
+
+.lead-communication__message {
+    padding: .7rem;
+    border: 1px solid $gray-300;
+}
+
+.jq__lead-communication__expandedConversation {
+    display: none;
+}
+
+
+// *******************************************
+// *******************************************
+
+    // Lead Detail Page Componet
+    // /leads/:leadId
+
+// *******************************************
+// *******************************************
+
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 18px solid transparent;
+    border-bottom: 16px solid transparent;
+    position: relative;
+    margin-left: 0px;
+    z-index: 2;
+}
+
+$lead-status-blue: #25EFE6;
+$lead-status-yellow: #EFCE01;
+$lead-status-orange: #FFA000;
+$lead-status-light-red: #FF5000;
+$lead-status-dark-red: #EC4459;
+$lead-status-inactive: #DDD;
+$left-border: 10px;
+
+
+.arrow-right--inactive {
+    border-left: $left-border solid $lead-status-inactive;
+}
+
+.lead-status-arrow {
+    padding: 5px 0;
+
+    &.u-background-gray-300 {
+        color: $gray-500;
+        font-weight: 400;
+    }
+}
+
+.lead-status--inactive {
+    background-color: $lead-status-inactive;
+}
+
+.arrow-right--blue-400 {
+    border-left: $left-border solid $blue-400;
+}
+
+.arrow-right--green-400 {
+    border-left: $left-border solid $green-400;
+}
+
+.arrow-right--amber-400 {
+    border-left: $left-border solid $amber-400;
+}
+
+.arrow-right--orange-400 {
+    border-left: $left-border solid $orange-400;
+}
+
+.arrow-right--pink-400 {
+    border-left: $left-border solid $amber-400;
+}
+
+.clickable {
+    cursor: pointer;
+}

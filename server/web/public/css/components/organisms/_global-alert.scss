@@ -1,0 +1,80 @@
+// *******************************************
+// *******************************************
+
+    // global-alert Components
+
+// *******************************************
+// *******************************************
+
+// @vars
+$global-alert-height : 40px;
+$global-alert-radius : 3px;
+$global-alert-color-map: (
+    'primary'   : $symbolic-info,
+    'error'     : $symbolic-error,
+    'success'   : $symbolic-success,
+    'warning'   : $symbolic-warning,
+    'info'      : $symbolic-info,
+);
+
+$global-alert-box-shadow: $shadow-light;
+
+.global-alert {
+    display         : flex;
+    align-items     : top;
+    padding-top     : rem-calc(6);
+    padding-bottom  : rem-calc(6);
+    padding-left    : rem-calc(8);
+    padding-right   : rem-calc(8);
+}
+
+.global-alert--shadow {
+    box-shadow : $global-alert-box-shadow;
+}
+
+.global-alert--outline {
+    background      : $white;
+    border          : 2px solid $primary;
+    color           : $primary;
+}
+
+@each $global-alert-color-map-key, $global-alert-color-map-color in $global-alert-color-map {
+    .global-alert--#{$global-alert-color-map-key} {
+        opacity         : .8;
+        background      : $global-alert-color-map-color;
+        border          : 1px solid $white;
+        color           : $white;
+
+        &.global-alert--outline {
+            border-color    : $global-alert-color-map-color;
+            color           : $global-alert-color-map-color;
+            background      : $white;
+        }
+
+    }
+
+}
+
+.global-alert__content {
+    padding-left    : rem-calc(4);
+    font-size       : rem-calc(18);
+    font-weight     : bold;
+    flex            : 1 0 auto;
+}
+
+.global-alert-close {
+    flex    : 0 0 auto;
+}
+
+// border-radius modifier
+.global-alert--radius {
+    border-radius : $global-alert-radius;
+}
+
+.global-alert__prefix-icon {
+    height      : rem-calc(15);
+    width       : rem-calc(15);
+    flex        : 0 0 auto;
+}
+
+

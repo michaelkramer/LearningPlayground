@@ -1,0 +1,20 @@
+// *******************************************
+// *******************************************
+
+    // Signup Page layout component
+
+// *******************************************
+// *******************************************
+
+// @vars
+$white       : $white; // settings/colors
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+}
+
+#signup-form {
+    text-align: center;
+    width: rem-calc(325);
+}

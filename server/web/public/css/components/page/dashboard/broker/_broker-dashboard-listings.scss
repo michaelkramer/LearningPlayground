@@ -1,0 +1,17 @@
+// *******************************************
+// *******************************************
+
+    // Broker Dashboard Listings Page layout component
+
+// *******************************************
+// *******************************************
+
+$gray-200                           : $gray-200; // settings/colors
+$white                              : $white; // settings/colors
+$broker-dashboard-header-width      : 1670;
+$broker-dashboard-header-padding    : 20;
+
+.broker-dashboard-listings__list-viewport {
+    height: calc(100vh - #{rem-calc(249 + 13.5%)} );
+}
+

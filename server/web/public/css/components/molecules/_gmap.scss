@@ -1,0 +1,26 @@
+// *******************************************
+// *******************************************
+
+    // Google map components
+
+// *******************************************
+// *******************************************
+//
+$white  : $white; // settings/colors
+
+.gmap-control {
+    margin-top: rem-calc(10);
+    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, .3);
+    border: rem-calc(2) solid $white;
+    background-color: $white;
+    text-align: center;
+    cursor: pointer;
+
+    div {
+        padding-right: rem-calc(5);
+        padding-left: rem-calc(5);
+        font-size: rem-calc(12);
+        font-weight: 500;
+        line-height: rem-calc(25);
+    }
+}

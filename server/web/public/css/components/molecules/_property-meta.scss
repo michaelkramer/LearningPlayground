@@ -1,0 +1,39 @@
+// *******************************************
+// *******************************************
+
+    // Property meta info list component
+
+// *******************************************
+// *******************************************
+
+.property-meta {
+    display         : flex;
+    flex-wrap       : wrap;
+    justify-content : center;
+    align-items     : stretch;
+    color           : $gray-500;
+    text-align      : center;
+    line-height     : rem-calc(18);
+}
+
+.property-meta__item {
+    position        : relative;
+    display         : inline-flex;
+    flex-flow       : column;
+    justify-content : center;
+    align-items     : center;
+    flex            : 1 1 auto;
+    margin          : rem-calc(6 0);
+    padding         : rem-calc(0 12);
+
+    &::after {
+        margin-left       : 1px;
+        border-left-color : rgba($white, .7);
+    }
+
+    &:first-child::before,
+    &:first-child::after {
+        display : none;
+    }
+
+}

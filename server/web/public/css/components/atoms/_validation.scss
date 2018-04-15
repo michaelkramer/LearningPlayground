@@ -1,0 +1,16 @@
+// *******************************************
+// *******************************************
+
+    // Validation Component Styles
+
+// *******************************************
+// *******************************************
+
+// @vars
+$validation-colors-map : $symbolic-colors; // settings/color
+
+.validation__message {
+    font-size   : rem-calc(11);
+    line-height : rem-calc(16);
+    @include sans;
+}

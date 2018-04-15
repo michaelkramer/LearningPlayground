@@ -1,0 +1,86 @@
+// *******************************************
+// *******************************************
+
+    // Modal component
+
+// *******************************************
+// *******************************************
+
+// @vars
+$unit-header-height   : $unit-header-height; // settings/layout-units
+$modal-page-max-width : $unit-grid-constraint; // settings/layout-units
+$modal-padding        : 30;
+$modal-footer-height  : 20;
+$modal-footer-border  : 1;
+
+// container element
+.modal {
+    position        : absolute;
+    top             : 0;
+    right           : 0;
+    bottom          : 0;
+    left            : 0;
+    z-index         : $index-modal;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : center;
+    opacity         : 1;
+    visibility      : visible;
+    background      : rgba($black, .3);
+    transition      : opacity 250ms ease,
+                      visibility 250ms ease,
+                      z-index 250ms ease;
+}
+
+// modal panel
+.modal__panel {
+    width : 100%;
+}
+
+// contains modal content
+.modal__content {
+    display        : flex;
+    flex-direction : column;
+}
+
+// modal display style modifiers
+
+// modal that renders as page centered
+// in container
+.modal--page {
+    padding-bottom : 0;
+
+    .modal__panel {
+        width     : 95%;
+        height    : 95%;
+        max-width : rem-calc($modal-page-max-width);
+        margin    : auto;
+        overflow  : hidden;
+    }
+
+    .modal__content {
+        height     : 100%;
+        overflow   : hidden;
+        overflow-y : auto;
+    }
+
+    .modal__footer {
+        height      : rem-calc($modal-footer-height);
+        border-top  : rem-calc($modal-footer-border) solid $gray-200;
+        position    : relative;
+        margin      : rem-calc(-68) 0;
+        background  : $white;
+        z-index     : $stack-top;
+    }
+
+}
+
+// width modifiers
+.modal--narrow {
+
+    .modal__panel {
+        max-width : rem-calc(650);
+    }
+
+}

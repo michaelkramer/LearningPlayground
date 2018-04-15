@@ -1,0 +1,51 @@
+// *******************************************
+// *******************************************
+
+    // Alert Components
+
+// *******************************************
+// *******************************************
+
+
+.alert {
+    padding: rem-calc(15);
+    border: rem-calc(1) solid transparent;
+    border-radius: rem-calc(4);
+    position: relative;
+    text-align: center;
+    font-size: rem-calc(14);
+    ul {
+        display: inline-block;
+        text-align: left;
+        li {
+            list-style: disc;
+            &:only-child {
+                list-style: none;
+            }
+        }
+    }
+}
+
+.alert-danger {
+    color: darken($symbolic-error, 16%);
+    background-color: lighten($symbolic-error, 42%);
+    border-color: lighten($symbolic-error, 37%);
+}
+
+.alert-info {
+    color: darken($symbolic-info, 20%);
+    background-color: lighten($symbolic-info, 32%);
+    border-color: lighten($symbolic-info, 28%);
+}
+
+.alert-success {
+    color: darken($symbolic-success, 20%);
+    background-color: lighten($symbolic-success, 40%);
+    border-color: lighten($symbolic-success, 36%);
+}
+
+.alert-warning {
+    color: darken($symbolic-warning, 23%);
+    background-color: lighten($symbolic-warning, 40%);
+    border-color: lighten($symbolic-warning, 36%);
+}

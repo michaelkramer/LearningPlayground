@@ -1,0 +1,164 @@
+// *******************************************
+// *******************************************
+
+    // Table component styles
+
+// *******************************************
+// *******************************************
+
+// @vars
+$unit-default-spacing          : $unit-default-spacing; // settings/layout-units
+$table-cell-horizontal-spacing : 10;
+
+// container element
+.table {
+    display         : table;
+    width           : 100%;
+    border-collapse : collapse;
+    text-align      : left;
+}
+
+.table__thead {
+    .th {
+        padding: rem-calc(($unit-default-spacing / 2) $table-cell-horizontal-spacing);
+        font-weight: 600;
+    }
+}
+
+.table--bordered {
+    border-right  : 1px solid $gray-200;
+    border-bottom : 1px solid $gray-200;
+    border-left   : 1px solid $gray-200;
+}
+
+// border top modifier
+.table--border-top {
+    border-top : 1px solid $gray-200;
+}
+
+// rows
+.tr {
+    display : table-row;
+}
+
+// table cells
+.td,
+.th {
+    display        : table-cell;
+    padding        : rem-calc(($unit-default-spacing) $table-cell-horizontal-spacing);
+    vertical-align : middle;
+}
+
+.th {
+    font-weight: 500;
+}
+
+.table__caption {
+    padding        : rem-calc(0 $table-cell-horizontal-spacing);
+    color          : $gray-500;
+    text-transform : uppercase;
+    text-align     : left;
+}
+
+// table head
+.thead {
+    display : table-header-group;
+}
+
+// color modifiers
+.table__thead--gray-050 {
+    background : mix($white, $gray-200, 50%);
+}
+
+// thead cells
+.thead__th,
+.thead__td {
+    font-size : rem-calc(14);
+}
+
+// table body
+.tbody {
+    display : table-row-group;
+}
+
+.tbody--updating {
+    opacity    : 0;
+    transition : all 1s $ease-out-cubic;
+}
+
+.tbody--stripe {
+    background : $white;
+
+    .tr:nth-child(even) {
+        background : $gray-050;
+    }
+
+}
+
+.tbody--border-cells {
+
+    .th,
+    .td {
+        border-left : 1px solid $gray-200;
+
+        &:first-child {
+            border-left : 0;
+        }
+
+    }
+
+}
+
+// vertical alignment
+.tbody--vertical-align-top {
+
+    .th,
+    .td {
+        vertical-align : top;
+    }
+
+}
+
+.tbody--vertical-align-middle {
+
+    .th,
+    .td {
+        vertical-align : middle;
+    }
+
+}
+
+// table body
+.table__tbody {
+    background : $white;
+}
+
+// tbody rows
+.tbody__tr {
+    border-bottom : 1px solid $gray-200;
+
+    &:first-child {
+        border-top : 1px solid $gray-200;
+    }
+}
+
+.tbody__tr--selected {
+    background : $gray-100 !important;
+}
+
+// tbody cells
+.tbody__th,
+.tbody__td {
+    font-size : rem-calc(12);
+}
+
+// tfoot
+.tfoot {
+    display : table-footer-group;
+}
+
+// tfoot cells
+.tfoot__td,
+.tfoot__th {
+    font-size : rem-calc(12);
+}

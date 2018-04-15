@@ -1,0 +1,58 @@
+// *******************************************
+// *******************************************
+
+    // Leads page component styles
+
+// *******************************************
+// *******************************************
+
+// @vars
+$unit-default-spacing : $unit-default-spacing; // settings/layout-units
+$unit-header-height   : $unit-header-height; // settings/layout-units
+$unit-grid-constraint : $unit-grid-constraint; // settings/layout-units
+$unit-touch           : $unit-touch; // settings/layout-units
+$unit-navbar-width    : $unit-navbar-width; // settings/layout-units
+$leads-filter-width   : $unit-content-sidebar-width; // settings/layout-units
+
+.leads__table__assigned-to {
+    display         : flex;
+    justify-content : space-around;
+    align-items     : center;
+}
+
+.bottom-bar-popup {
+    position : fixed;
+    bottom   : 0;
+    z-index  : $stack-top + 1;
+    width    : 100%;
+}
+
+.leads__bulk-assigment-popup {
+    height     : auto;
+    border     : 1px solid $gray-200;
+    background : $white;
+}
+
+// listing detail overlay
+.leads__detail {
+    position   : fixed;
+    top        : rem-calc($unit-header-height);
+    right      : 0;
+    bottom     : 0;
+    left       : rem-calc($unit-navbar-width);
+    z-index    : $index-modal-hidden;
+    opacity    : 0;
+    visibility : hidden;
+    overflow   : hidden;
+    background : rgba($black, .3);
+    transition : opacity 250ms ease,
+                 visibility 250ms ease,
+                 z-index 250ms ease;
+}
+
+// visibile modifier
+.leads__detail--visible {
+    z-index    : $index-modal;
+    opacity    : 1;
+    visibility : visible;
+}

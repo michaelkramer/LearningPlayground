@@ -1,0 +1,46 @@
+// *******************************************
+// *******************************************
+
+    // Event List component
+
+// *******************************************
+// *******************************************
+
+.event-list {
+    margin          : 0;
+    padding         : 0;
+    list-style-type : none;
+}
+
+.event-list__section-header {
+    display         : flex;
+    padding         : rem-calc(8 24);
+    border-bottom   : 1px solid $gray-200;
+    font-weight     : 600;
+    font-size       : 15px;
+}
+
+.event-list__item {
+    display         : flex;
+    align-items     : center;
+    padding         : rem-calc(20 24);
+    border-bottom   : 1px solid $gray-200;
+    background      : $white;
+}
+
+.event-list__item__content {
+    max-width       : 800px;
+    width           : 100%;
+}
+
+.event-list__item__times {
+    font-size       : 14px;
+    font-weight     : 600;
+    color           : $gray-400;
+    max-width       : 180px;
+}
+
+.event-list__item__summary {
+    font-weight     : 600;
+    font-size       : 14px;
+}

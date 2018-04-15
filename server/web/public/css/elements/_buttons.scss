@@ -1,0 +1,36 @@
+// *******************************************
+// *******************************************
+
+    // Element styles for <button>
+
+// *******************************************
+// *******************************************
+
+// @MIXIN
+// Normalize button to our base styles
+// resets form and anchor styles
+@mixin button-normalize {
+    padding            : 0;
+    margin             : 0;
+    background-color   : transparent;
+    border-radius      : 0;
+    border             : 0;
+    line-height        : normal;
+    font-family        : inherit;
+    font-size          : inherit;
+    text-decoration    : none;
+    cursor             : pointer;
+    -webkit-appearance : none;
+    -moz-appearance    : none;
+}
+
+button {
+    @include button-normalize;
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    outline: none; // added by JW on 3/25
+}

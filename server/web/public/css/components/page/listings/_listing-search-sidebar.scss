@@ -1,0 +1,35 @@
+// *******************************************
+// *******************************************
+
+    // Listing Search Sidebar Component
+
+// *******************************************
+// *******************************************
+
+// @vars
+$unit-grid-gutter : $unit-grid-gutter; // settings/layout-units
+
+// tab navigation
+.listing-search-sidebar__tabs__tab {
+    border-top : 0;
+
+    &:first-child {
+        border-left : 0 !important;
+    }
+
+    &:last-child {
+        border-right : 0 !important;
+    }
+
+}
+
+// filter content area under tabs
+.listing-search-sidebar__content {
+    padding : rem-calc($unit-grid-gutter);
+}
+
+.listing-search-sidebar__controls {
+    margin     : rem-calc($unit-grid-gutter 0 0);
+    padding    : rem-calc($unit-grid-gutter 0 0);
+    border-top : 1px solid $gray-200;
+}

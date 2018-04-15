@@ -1,0 +1,31 @@
+// *******************************************
+// *******************************************
+
+    // Column Group components
+
+// *******************************************
+// *******************************************
+
+.column-group-container {
+    display         : flex;
+    flex-wrap       : wrap;
+    flex-direction  : row;
+    overflow        : hidden;
+}
+
+.column-group {
+    width           : 400px;
+    padding-right   : 40px;
+}
+
+.column-group__title {
+    font-size       : 15px;
+    font-weight     : 500;
+    color           : $gray-400;
+    text-transform  : uppercase;
+}
+
+.column-group__ul {
+    margin-top      : 5px;
+    margin-left     : 2px;
+}

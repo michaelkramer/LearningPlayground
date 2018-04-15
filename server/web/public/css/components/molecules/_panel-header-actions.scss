@@ -1,0 +1,47 @@
+// *******************************************
+// *******************************************
+
+    // Panel header actions component styles
+
+// *******************************************
+// *******************************************
+
+// @vars
+// settings/layout-units
+$unit-default-spacing : $unit-default-spacing;
+$unit-touch           : $unit-touch;
+
+.panel-header-actions {
+    display         : flex;
+    justify-content : flex-start;
+    align-items     : center;
+}
+
+.panel-header-actions__action {
+    display     : flex;
+    align-items : stretch;
+    height      : rem-calc($unit-touch);
+    padding     : rem-calc(0 $unit-default-spacing);
+    border-left : 1px solid $gray-200;
+    font-size   : rem-calc(13);
+    color       : $gray-600;
+
+    // enforces anchor layout
+    > :first-child {
+        display     : flex;
+        align-items : center;
+    }
+
+    .icon {
+        width        : rem-calc($unit-default-spacing * 2);
+        height       : rem-calc($unit-default-spacing * 2);
+        margin-right : rem-calc($unit-default-spacing);
+    }
+
+}
+
+.panel-header-actions__action__layout {
+    display     : flex;
+    align-items : center;
+    padding     : rem-calc(0 9);
+}

@@ -1,0 +1,40 @@
+// *******************************************
+// *******************************************
+
+    // Dropdown components
+
+// *******************************************
+// *******************************************
+
+.dropdown {
+    position : relative;
+}
+
+.dropdown__menu {
+    position : absolute;
+    top      : 100%;
+    right    : 0;
+    z-index  : $stack-top;
+    display  : none;
+    width    : 100%;
+
+    .dropdown--visible & {
+        display : block;
+    }
+
+}
+
+.dropdown__mask {
+    position : fixed;
+    top      : 0;
+    right    : 0;
+    bottom   : 0;
+    left     : 0;
+    z-index  : $stack-bot;
+    display  : none;
+
+    .dropdown--visible & {
+        display : block;
+    }
+
+}

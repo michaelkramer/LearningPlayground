@@ -1,0 +1,86 @@
+// *******************************************
+// *******************************************
+
+    // Image slider components
+
+// *******************************************
+// *******************************************
+
+// @vars
+$unit-touch : $unit-touch; // settings/layout-units
+
+// container
+.image-slider {
+    position    : relative;
+    overflow    : hidden;
+    line-height : 0;
+}
+
+// image element
+.image-slider__image,
+.image-slider img {
+    display : block;
+    width   : 100%;
+}
+
+// total slides count
+.image-slider__total {
+    position         : absolute;
+    right            : 0;
+    bottom           : 0;
+    left             : 0;
+    z-index          : $stack-top;
+    display          : flex;
+    flex-direction   : row-reverse;
+    justify-content  : space-between;
+    align-items      : flex-end;
+    height           : rem-calc(60);
+    padding          : rem-calc(0 6 6 0);
+    background-image : linear-gradient(-180deg, rgba($black, 0) 0%, $black 100%);
+    color            : $white;
+    line-height      : 1rem;
+}
+
+// next/prev nav
+.image-slider__nav {
+    position        : absolute;
+    top             : 50%;
+    right           : 0;
+    left            : 0;
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    padding         : rem-calc(0 6);
+    transform       : translateY(-50%);
+}
+
+// nav item button
+.image-slider__nav__item {
+    display       : block;
+    width         : rem-calc($unit-touch);
+    height        : rem-calc($unit-touch);
+    border-radius : 50%;
+    background    : rgba($black, .85);
+
+    &:focus {
+        outline : 0;
+    }
+
+}
+
+// wrapper for flexbox layout
+.image-slider__nav__item__layout {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    width           : rem-calc($unit-touch);
+    height          : rem-calc($unit-touch);
+}
+
+// button icon
+.image-slider__nav__item__icon {
+    width  : rem-calc(18);
+    height : rem-calc(18);
+    margin : 0;
+    fill   : $white;
+}

@@ -1,0 +1,16 @@
+.upload-assets-page__form-label {
+    @media (min-width: $viewport-md) {
+        text-align: right !important;
+    }
+}
+.upload-assets-page__header {
+    display     : block;
+    background  : $gray-100;
+    padding     : rem-calc(6);
+}
+
+.upload-assets-page__border {
+    border      : 1px solid $gray-200;
+    padding     : 0;
+    background  : $gray-050;
+}

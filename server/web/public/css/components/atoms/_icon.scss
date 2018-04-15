@@ -1,0 +1,78 @@
+// *******************************************
+// *******************************************
+
+    // Base icon styles
+
+// *******************************************
+// *******************************************
+
+// @vars
+$icon-colors       : $all-colors; // settings/colors
+$icon-sizes        : $icon-sizes; // settings/layout-units
+$icon-default-size : map-get(map-get($icon-sizes, 'xs'), 'size');
+
+// <span class="icon [icon--[name] icon--rotate-[val] icon--[color]]">
+//     <svg />
+// </span>
+//
+
+
+.icon {
+    display    : inline-block;
+    width      : rem-calc($icon-default-size);
+    height     : rem-calc($icon-default-size);
+    margin     : rem-calc(0 4);
+    background : transparent;
+    fill       : $black;
+
+    @each $u-color-key, $u-color-background in $all-colors {
+
+        &.u-background-#{$u-color-key} {
+                line-height     : 0;
+                padding         : 3px;
+                box-sizing      : border-box;
+        }
+
+    }
+
+}
+
+// size modifiers
+@each $icon-size-key, $icon-size in $icon-sizes {
+
+    .icon--#{$icon-size-key} {
+        width  : rem-calc(map-get($icon-size, 'size'));
+        height : rem-calc(map-get($icon-size, 'size'));
+    }
+
+}
+
+// color modifiers
+@each $color-key, $color in $icon-colors {
+
+    .icon--#{$color-key} {
+        fill : $color;
+    }
+
+}
+
+// spin icon modifier
+.icon--spin {
+
+    svg {
+        animation : icon-spin 450ms infinite linear;
+    }
+
+}
+
+@keyframes icon-spin {
+
+    from {
+        transform : rotate(0deg);
+    }
+
+    to {
+        transform : rotate(360deg);
+    }
+
+}

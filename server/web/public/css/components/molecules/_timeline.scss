@@ -1,0 +1,62 @@
+// *******************************************
+// *******************************************
+
+    // Timeline components
+
+// *******************************************
+// *******************************************
+
+// @vars
+$timeline-left-offset          : 40;
+$timeline-line-color           : $gray-300; // settings/colors
+$timeline-line-weight          : 2px;
+$timeline-entry-icon-dimension : 32;
+$timeline-startpoint-dimension : 11;
+
+.timeline {
+    position: relative;
+    border-left : $timeline-line-weight solid $timeline-line-color;
+
+    // start of time point
+    &::before {
+        content       : '';
+        position      : absolute;
+        bottom        : 0;
+        left          : rem-calc(-($timeline-startpoint-dimension / 2));
+        width         : rem-calc($timeline-startpoint-dimension);
+        height        : rem-calc($timeline-startpoint-dimension);
+        border-radius : 50%;
+        background    : $timeline-line-color;
+    }
+
+}
+
+.timeline__entry {
+    position : relative;
+    padding  : rem-calc(0 0 30 $timeline-left-offset);
+}
+
+.timeline__entry__badge {
+    position        : absolute;
+    top             : 0;
+    left            : calc(#{(rem-calc(-$timeline-entry-icon-dimension / 2))} - #{$timeline-line-weight});
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    width           : rem-calc($timeline-entry-icon-dimension);
+    height          : rem-calc($timeline-entry-icon-dimension);
+    border          : $timeline-line-weight solid $timeline-line-color;
+    border-radius   : 50%;
+    background      : $gray-050;
+    line-height     : 0;
+}
+
+.timeline__entry__badge__icon {
+    width  : rem-calc($timeline-entry-icon-dimension * .5);
+    height : rem-calc($timeline-entry-icon-dimension * .5);
+    margin : 0;
+}
+
+.timeline__entry__header {
+    margin-bottom : rem-calc(12);
+}

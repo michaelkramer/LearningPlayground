@@ -1,0 +1,247 @@
+// *******************************************
+// *******************************************
+
+    // Faux input components
+    // wraps and simulates native inputs
+    // DON'T USE - unless it's for a react input
+
+// *******************************************
+// *******************************************
+
+// @vars
+$faux-input-default-height : $unit-touch; // settings/layout-units
+$faux-input-sm-height      : 30;
+$unit-default-font-spacing : $unit-default-font-spacing; // settings/layout-units
+$unit-default-spacing      : $unit-default-spacing; // settings/layout-units
+$faux-input-max-width      : $unit-grid-constraint; // settings/layout-units
+$faux-input-value-size     : 14;
+$faux-input-label-size     : 9;
+
+// container element
+.faux-input {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : flex-end;
+    height          : rem-calc($faux-input-default-height);
+    max-width       : rem-calc($faux-input-max-width);
+}
+
+.faux-input--textarea {
+    height         : auto;
+}
+
+// label default state
+.faux-input__form-label {
+    display        : block;
+    height         : rem-calc($faux-input-value-size);
+    font-size      : rem-calc($faux-input-label-size);
+    color          : $gray-700;
+    text-transform : uppercase;
+    line-height    : rem-calc($faux-input-value-size);
+}
+
+.faux-input__form-label__required {
+    padding : rem-calc(0 $unit-default-font-spacing);
+    color   : $symbolic-error;
+}
+
+// contains input element and affixed content
+.faux-input__input-container {
+    position        : relative;
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    border-bottom   : 1px solid $gray-800;
+    line-height     : 0;
+
+    // focus/validation bottom border element
+    &::after {
+        content    : '';
+        position   : absolute;
+        bottom     : rem-calc(-3);
+        left       : 0;
+        display    : block;
+        width      : 0;
+        height     : rem-calc(3);
+        background : $primary;
+        transition : width 200ms $ease-in-out-quad;
+    }
+
+    // show states of border bottom element
+    .faux-input--focus &,
+    .validation--active & {
+
+        &::after {
+            width : 100%;
+        }
+
+    }
+
+    // validation color themes
+    .validation--symbolic-error.validation--active & {
+
+        &::after {
+            background : $symbolic-error;
+        }
+
+    }
+
+    // validation color themes
+    .validation--symbolic-success.validation--active & {
+
+        &::after {
+            background : $symbolic-success;
+        }
+
+    }
+
+    // disabled modifier
+    .faux-input--disabled & {
+        border-bottom : 1px dashed $gray-400;
+    }
+
+}
+
+// input element
+// 1. total height minus label height and bottom offset
+.faux-input__input--multi {
+ @include sans-bold;
+    flex          : 1 0 auto;
+    height        : rem-calc(98); // 1.
+    margin-top    : rem-calc($unit-default-spacing);
+    margin-bottom : rem-calc($unit-default-spacing);
+    border        : 0;
+    background    : transparent;
+    font-size     : rem-calc($faux-input-value-size);
+    color         : $gray-800;
+    line-height   : rem-calc($faux-input-value-size);
+
+    &:focus {
+        outline : 0;
+    }
+
+    // disabled modifier
+    .faux-input--disabled & {
+        color : $gray-400;
+    }
+
+    @include placeholder {
+        @include sans-regular;
+        font-size   : rem-calc($faux-input-value-size);
+        color       : $gray-400;
+        line-height : rem-calc($faux-input-value-size);
+    }
+
+}
+
+// input element
+// 1. total height minus label height and bottom offset
+.faux-input__input {
+ @include sans-bold;
+    flex          : 1 0 auto;
+    height        : rem-calc($faux-input-default-height - 14 - $unit-default-spacing); // 1.
+    margin-top    : rem-calc($unit-default-spacing);
+    margin-bottom : rem-calc($unit-default-spacing);
+    border        : 0;
+    background    : transparent;
+    font-size     : rem-calc($faux-input-value-size);
+    color         : $gray-800;
+    line-height   : rem-calc($faux-input-value-size);
+}
+
+// modifier to transition placeholder
+// while focused or with value
+.faux-input--transition-placeholder:not(.faux-input--plain) {
+
+    // default state
+    // label placed where over placeholder would be
+    // styled to resemble placeholder
+    .faux-input__form-label {
+        @include sans-regular;
+        left           : 0;
+        transform      : translateY(#{rem-calc(21)}); // magic number!
+        font-size      : rem-calc($faux-input-value-size);
+        color          : $gray-400;
+        text-transform : none;
+        transition     : transform 175ms ease,
+                         font-size 175ms ease,
+                         color 175ms ease;
+    }
+
+    .faux-input__form-label__required {
+        color : $gray-400;
+    }
+
+    // focus/filled state
+    // label transitioned to default position and style
+    &.faux-input--focus,
+    &.faux-input--filled {
+
+        .faux-input__form-label {
+            @include sans-bold;
+            transform      : translateY(0) !important;
+            font-size      : rem-calc($faux-input-label-size);
+            color          : $gray-700;
+            text-transform : uppercase;
+        }
+
+        .faux-input__form-label__required {
+            color : $symbolic-error;
+        }
+
+    }
+
+    // disable transition on filled inputs
+    // to prevent awkward transition with
+    // data latency
+    &.faux-input--filled {
+
+        .faux-input__form-label {
+            transition : none !important;
+        }
+
+    }
+
+}
+
+// size modifiers
+.faux-input--sm {
+    height : rem-calc($faux-input-sm-height);
+
+    .faux-input__input {
+        height        : rem-calc($faux-input-sm-height - $faux-input-value-size);
+        margin-bottom : rem-calc($unit-default-font-spacing);
+    }
+
+    .faux-input__form-label {
+        margin-top : rem-calc(-$unit-default-font-spacing);
+    }
+
+    &.faux-input--transition-placeholder {
+
+        .faux-input__form-label {
+            transform : translateY(#{rem-calc(12)}); // magic number!
+        }
+
+    }
+
+}
+
+// plain style modifier
+.faux-input--plain {
+
+    .faux-input__input-container {
+        flex          : 1 0 auto;
+        border-bottom : 0;
+
+        &::after {
+            display : none;
+        }
+
+    }
+
+    .faux-input__input {
+        margin : 0;
+    }
+
+}

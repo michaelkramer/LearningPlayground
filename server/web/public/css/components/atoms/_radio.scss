@@ -1,0 +1,38 @@
+// *******************************************
+// *******************************************
+
+    // Radio component styles
+
+// *******************************************
+// *******************************************
+
+// faux radio input
+// shares .option-control__box
+.radio__box {
+    border-radius : 50%;
+
+    // checked fill
+    &::before {
+        content       : '';
+        display       : block;
+        width         : rem-calc(20);
+        height        : rem-calc(20);
+        transform     : scale(0, 0);
+        border-radius : 50%;
+        background    : $gray-400;
+        transition    : scale 200ms ease,
+                        background 200ms ease;
+
+        .radio--checked & {
+            transform  : scale(1, 1);
+            background : $primary;
+        }
+
+        .radio--sm & {
+            width  : rem-calc(14);
+            height : rem-calc(14);
+        }
+
+    }
+
+}
