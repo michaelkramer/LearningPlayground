@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "flow": "flow",
     "start": "nf run -- index.js pizza",
+    "begin": "nf run -- webpack-dev-server --history-api-fallback --inline --progress",
     "web": "nf run -- nodemon index.js web",
     "migrate": "nf run -- mariner migrate up",
     "rollback": "nf run -- mariner migrate down",
@@ -28,6 +29,7 @@
     "distraught": "^1.12.0",
     "glob": "^7.1.2",
     "mariner": "^1.0.2",
+    "path": "^0.12.7",
     "pug": "^2.0.3"
   },
   "devDependencies": {
@@ -47,8 +49,12 @@
     "foreman": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-watch": "^5.0.0",
+    "html-webpack-plugin": "^3.2.0",
     "nodemon": "^1.15.1",
-    "postcss": "^6.0.21"
+    "postcss": "^6.0.21",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
   },
   "ava": {
     "files": [
@@ -64,6 +70,6 @@
     "source": "**/*.{js,pug}"
   },
   "engines": {
-    "node": "8.9.2"
+    "node": "8.10.*"
   }
 }
