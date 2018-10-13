@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "flow": "flow",
-    "start": "nf run -- index.js pizza",
+    "docker": "docker-compose up -d",
+    "start": "nf run -- index.js web",
     "begin": "nf run -- webpack-dev-server --history-api-fallback --inline --progress",
     "web": "nf run -- nodemon index.js web",
     "migrate": "nf run -- mariner migrate up",
