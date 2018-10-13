@@ -1,0 +1,61 @@
+NF = node_modules/.bin/nf
+MARINER = node_modules/.bin/mariner
+
+# .PHONY: web lint crons workers ui all test migration migrate rollback script
+
+lint:
+	npm run lint
+
+web:
+	npm run web
+
+dev:
+	yarn concurrently 'yarn run web' 'yarn run build:webpack:dev'
+
+crons:
+	npm run crons
+
+workers:
+	npm run workers
+
+test:
+	npm run test
+
+script:
+	npm run script
+
+swagger:
+	npm run edit
+
+migration:
+	@while [ -z "$$MIGRATION_NAME" ]; do \
+		read -r -p "Enter Migration Name: " MIGRATION_NAME; \
+	done ; \
+	${NF} run $(MARINER) create "$$MIGRATION_NAME"
+
+migrate:
+	npm run migrate
+
+rollback:
+	npm run rollback
+
+reset-db:
+	${NF} run node dev-ops/clear-db.js
+	${NF} run node dev-ops/import-db.js
+
+docker-up:
+	${NF} run make actually-docker-up
+
+actually-docker-up:
+	docker-compose up -d
+
+normalize-shield:
+	${NF} run node dev-ops/normalize-shield.js $(RUN_ARGS)
+
+import-db:
+	${NF} run make actually-import-db-with-env-vars
+
+actually-import-db-with-env-vars:
+	curl -o database.dump `heroku pg:backups:url --app=portal-ck-qa`
+	pg_restore -d $(DATABASE_URL) -j 4 --no-owner database.dump
+	rm database.dump

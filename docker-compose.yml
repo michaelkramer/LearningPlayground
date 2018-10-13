@@ -1,25 +1,23 @@
-postgres-learning-playground:
-  image: mdillon/postgis:9.6
-  ports:
-    - "5540:5432"
-  volumes_from:
-    - pgdata-learning-playground
-  environment:
-    POSTGRES_USER: db
-    POSTGRES_PASSWORD: db
-    POSTGRES_DB: db
+version: '3.3'
+services:
+  postgres-learning-playground:
+    image: mdillon/postgis:9.6
+    ports:
+      - '5540:5432'
+    environment:
+      POSTGRES_USER: db
+      POSTGRES_PASSWORD: db
+      POSTGRES_DB: db
+      PGDATA: /data
+    volumes:
+      - ~/db/playground/pg-mk:/data
 
-pgdata-learning-playground:
-  image: busybox
-  volumes:
-    - /data
-
-pgweb-learning-playground:
-  image: sosedoff/pgweb
-  container_name: pgweb-learning-playground
-  ports:
-    - "8002:8081"
-  links:
-    - postgres-learning-playground:postgres-learning-playground
-  environment:
-    - DATABASE_URL=postgres://db:db@postgres-learning-playground:5432/db?sslmode=disable
+  pgweb-learning-playground:
+    image: sosedoff/pgweb
+    container_name: pgweb-learning-playground
+    ports:
+      - '8002:8081'
+    links:
+      - postgres-learning-playground:postgres-learning-playground
+    environment:
+      - DATABASE_URL=postgres://db:db@postgres-learning-playground:5432/db?sslmode=disable
